@@ -1,0 +1,17 @@
+// src/styles/MyPage.scss
+
+$primary-color: #3498db;
+$text-color: #2c3e50;
+
+.mypage-container {
+  background-color: $primary-color;
+  color: $text-color;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+
+  div {
+    font-weight: bold;
+  }
+}
