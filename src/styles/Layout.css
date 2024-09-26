@@ -1,12 +1,11 @@
 .container {
-    margin: auto;
-    max-width: 600px;
-    height: 100%;
+  margin: auto;
+  max-width: 600px;
+  height: 100%;
 }
-  
+
 main {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=Layout.css.map */
