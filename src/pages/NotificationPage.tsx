@@ -1,7 +1,6 @@
 import Notice from '../components/Notice';
 import PageHeader from '../components/PageHeader';
 import '../styles/NotificationPage.css'
-// import '
 const NotificationPage = () => {
 
     return(
