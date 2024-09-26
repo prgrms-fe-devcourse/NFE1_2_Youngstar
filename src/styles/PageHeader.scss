@@ -1,5 +1,7 @@
 .header-box{
+    box-sizing: border-box;
     width: 100%;
+    max-width: 600px;
     position: fixed;
     text-align: center;
     align-items: center;
@@ -11,5 +13,9 @@
         border: none;
         float: left;
         background: transparent;
+    }
+
+    span{
+        padding-right: 11px;
     }
 }
