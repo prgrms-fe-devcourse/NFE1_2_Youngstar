@@ -1,0 +1,58 @@
+.nav {
+  width: 80px;
+  height: 100%;
+  background: #000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-top: 150px;
+}
+.nav ul li:nth-child(1) {
+  width: 25px;
+  height: 25px;
+  background: center/100% no-repeat;
+  background-image: url("../assets/nav1.png");
+  margin: 0 auto 50px;
+}
+.nav ul li:nth-child(2) {
+  width: 25px;
+  height: 25px;
+  background: center/100% no-repeat;
+  background-image: url("../assets/nav2.png");
+  margin: 0 auto 50px;
+}
+.nav ul li:nth-child(3) {
+  width: 25px;
+  height: 25px;
+  background: center/100% no-repeat;
+  background-image: url("../assets/nav3.png");
+  margin: 0 auto 50px;
+}
+.nav ul li:nth-child(4) {
+  width: 25px;
+  height: 25px;
+  background: center/100% no-repeat;
+  background-image: url("../assets/nav4.png");
+  margin: 0 auto 50px;
+}
+.nav ul li:nth-child(5) {
+  width: 25px;
+  height: 25px;
+  background: center/100% no-repeat;
+  background-image: url("../assets/nav5.png");
+  margin: 0 auto 50px;
+}
+.nav ul li:nth-child(6) {
+  width: 25px;
+  height: 25px;
+  background: center/100% no-repeat;
+  background-image: url("../assets/nav6.png");
+  margin: 0 auto 50px;
+}
+.nav ul li:nth-child(7) {
+  width: 25px;
+  height: 25px;
+  background: center/100% no-repeat;
+  background-image: url("../assets/nav7.png");
+  margin: 0 auto 50px;
+}/*# sourceMappingURL=Navbar.css.map */

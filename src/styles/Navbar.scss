@@ -1,0 +1,21 @@
+.nav {
+    width: 80px;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 150px;
+
+    ul {
+        @for $i from 1 through 7 {
+            li:nth-child(#{$i}) {
+                width: 25px;
+                height: 25px;
+                background: center/100% no-repeat;
+                background-image: url("../assets/nav#{$i}.png");
+                margin: 0 auto 50px;
+            }
+        }
+    }
+}

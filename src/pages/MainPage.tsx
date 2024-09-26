@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import Follower from "../components/Follower";
+import Post from "../components/Post";
 
 const MainPage = () => {
-    return (<>
-        <div>Mainpage</div>
-        <Link to='/MyPage'>
-            마이페이지
-        </Link>
-    </>)
+    return (
+        <>
+            <Follower />
+            <Post />
+        </>
+    )
 }
 
 export default MainPage;
