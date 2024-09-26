@@ -6,6 +6,9 @@ const MainPage = () => {
         <Link to='/MyPage'>
             마이페이지
         </Link>
+        <Link to='/notification'>
+            알림
+        </Link>
     </>)
 }
 
