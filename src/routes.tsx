@@ -1,3 +1,4 @@
+import DetailPage from './pages/DetailPage';
 import Layout from './components/Layout';
 import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
@@ -8,6 +9,7 @@ const routes = [
     children: [
       { path: '/', element: <MainPage /> },
       { path: '/mypage', element: <MyPage /> },
+      { path: '/detailpage', element: <DetailPage /> },
     ],
   },
 ];

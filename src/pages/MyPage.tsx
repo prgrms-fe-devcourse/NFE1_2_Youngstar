@@ -1,12 +1,11 @@
-// import useFetchUsers from "../hooks/useFetchUsers";
+import useFetchUsers from "../hooks/useFetchUsers";
 
 const MyPage = () => {
-    // const { data } = useFetchUsers();
-
+    const { data } = useFetchUsers();
     return (
         <>
             <div>Mypage</div>
-            {/* {data && (<div>{data[0]}</div>)} */}
+            {/* {data && (<div>{data[0].email}</div>)} */}
         </>
     );
 }

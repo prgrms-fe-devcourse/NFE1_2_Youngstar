@@ -1,0 +1,86 @@
+.user_post {
+  margin-bottom: 45px;
+  padding-bottom: 35px;
+  border-bottom: 3px solid #e6e6e6;
+}
+.user_post .user_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.user_post .user_info p {
+  display: flex;
+  align-items: center;
+}
+.user_post .user_info p img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #000;
+  margin-right: 20px;
+}
+.user_post .user_info p span {
+  color: #000;
+  font-size: 20px;
+}
+.user_post .user_info .follow_btn {
+  width: 85px;
+  height: 25px;
+  background: #000;
+  border-radius: 50px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  line-height: 22px;
+  border: none;
+}
+.user_post .slick-list {
+  width: 100%;
+  height: 450px !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.user_post .slick-track {
+  display: flex;
+  align-items: center;
+}
+.user_post .slick-prev {
+  left: 5px;
+  z-index: 1;
+}
+.user_post .slick-next {
+  right: 5px;
+}
+.user_post .slick-dots {
+  bottom: -20px;
+}
+.user_post .user_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.user_post .buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.user_post .buttons li {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+.user_post .buttons li button {
+  margin-right: 5px;
+}
+.user_post .buttons button {
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: none;
+}
