@@ -1,4 +1,4 @@
-import "../styles/css/Mypage.css"; // 임시 CSS 파일 임포트
+import "../styles/scss/Mypage.scss"; 
 import profilePhoto from "../assets/chun_bong.png";
 import settingIcon from "../assets/Setting.svg";
 
@@ -25,7 +25,7 @@ const MyPage = () => {
       </div>
       <div className="tab-content">
         <p>탭하면 보이는 공간</p>
-      </div>
+      </div>w
     </div>
   );
 };

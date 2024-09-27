@@ -1,18 +1,17 @@
 .container {
-    margin: auto;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  main {
-    width: 100%;
-    max-width: 600px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-  }
-  
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  /* max-width: 600px; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}/*# sourceMappingURL=Layout.css.map */
