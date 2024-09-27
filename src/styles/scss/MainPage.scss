@@ -1,0 +1,42 @@
+
+.post_area {
+    background: #fff;
+    padding: 25px 75px 160px;
+    max-width: 600px;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+        background: #d9d9d9;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3.5px;
+        background-color: #FFE68B;
+    
+        &:hover {
+        background-color: #ffdc5f;
+        }
+    }
+    &::-webkit-scrollbar-track {
+        background: #d9d9d9;
+    }
+}
+
+.post_add {
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    border: none;
+    background: #000;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 45px;
+    line-height: 48px;
+    text-align: center;
+}
+
