@@ -8,4 +8,8 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-}/*# sourceMappingURL=Layout.css.map */
+}
+
+body {
+  margin: 0;
+}

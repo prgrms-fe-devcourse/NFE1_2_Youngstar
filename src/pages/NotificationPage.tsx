@@ -1,8 +1,7 @@
 import Notice from '../components/Notice';
 import PageHeader from '../components/PageHeader';
-import '../styles/NotificationPage.css'
+import '../styles/css/NotificationPage.css'
 const NotificationPage = () => {
-
     return(
         <>
             <PageHeader>알림</PageHeader>
@@ -12,9 +11,6 @@ const NotificationPage = () => {
                 <Notice />
                 <Notice />
             </div>
-
-
- 
         </>
     )
 

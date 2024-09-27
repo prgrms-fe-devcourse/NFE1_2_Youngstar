@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import '../styles/PageHeader.css'
+import '../styles/css/PageHeader.css'
 
 interface PageHeaderProps {
     children: React.ReactNode;
