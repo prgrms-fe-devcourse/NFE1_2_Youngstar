@@ -4,7 +4,7 @@ import '../styles/css/NotificationPage.css'
 
 const NotificationPage = () => {
     return(
-        <>
+        <div className='page-container'>
             <PageHeader>알림</PageHeader>
             <div className="content-box">
                 <Notice />
@@ -12,7 +12,7 @@ const NotificationPage = () => {
                 <Notice />
                 <Notice />
             </div>
-        </>
+        </div>
     )
 }
 

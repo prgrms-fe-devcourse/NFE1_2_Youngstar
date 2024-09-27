@@ -21,7 +21,7 @@ const Post = () => {
             <div className='user_post'>
                 <div className='user_info'>
                     <p>
-                        <img src="" alt="" className='user_profile'/>
+                        <img src="src/assets/chun_bong.png" alt="" className='user_profile'/>
                         <span className='user_nickname'>chun_bong</span>
                     </p>
                     <button className='follow_btn'>following</button>
