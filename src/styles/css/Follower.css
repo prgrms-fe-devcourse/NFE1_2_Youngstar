@@ -1,0 +1,33 @@
+.follower_area {
+  max-width: 600px;
+  height: 95px;
+  background: #fff;
+  border-bottom: 2px solid #d9d9d9;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.follower_area ul {
+  padding: 0 10px 5px;
+  display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+}
+.follower_area ul::-webkit-scrollbar {
+  display: none;
+}
+.follower_area ul li {
+  margin-right: 16px;
+  text-align: center;
+}
+.follower_area ul li img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #000;
+}
+.follower_area ul li p {
+  font-size: 11px;
+  color: #000;
+}
