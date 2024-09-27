@@ -5,26 +5,30 @@
     position: fixed;
     left: 0;
     top: 0;
-    padding-top: 150px;
+    padding-top: 130px;
 
     ul {
         @for $i from 1 through 7 {
             li:nth-child(#{$i}) {
-                width: 25px;
-                height: 25px;
+                width: 30px;
+                height: 30px;
                 background: center/100% no-repeat;
                 background-image: url("../../assets/nav#{$i}.svg");
                 margin: 0 auto 50px;
+                
+                a {
+                    display: block; /* 링크가 클릭 가능한 영역을 차지하도록 설정 */
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
+    
         @for $i from 1 through 7 {
             li:nth-child(#{$i}).on {
-                width: 25px;
-                height: 25px;
-                background: center/100% no-repeat;
                 background-image: url("../../assets/nav_on#{$i}.svg");
-                margin: 0 auto 50px;
             }
         }
     }
+    
 }

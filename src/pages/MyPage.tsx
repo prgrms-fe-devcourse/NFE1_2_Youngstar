@@ -4,7 +4,7 @@ import settingIcon from "../assets/Setting.svg";
 
 const MyPage = () => {
   return (
-    <div className="container">
+    <div className="page-container">
       <div className="setting-section">
         <img className="setting" src={settingIcon} alt="Setting" />
       </div>

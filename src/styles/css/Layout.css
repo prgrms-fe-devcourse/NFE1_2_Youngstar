@@ -1,7 +1,5 @@
 .container {
   margin: auto;
-
-
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -11,12 +9,11 @@
 
 main {
   width: 100%;
-  /* max-width: 600px; */
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: white;
-}/*# sourceMappingURL=Layout.css.map */
+}
 
 * {
   margin: 0;
@@ -74,7 +71,7 @@ main {
     padding: 5px 10px 110px;
   }
   * .container .post_area .user_post .user_info {
-    margin-bottom: 5px;
+    margin-bottom: -8vw;
   }
   * .container .post_area .user_post .user_info .user_profile {
     width: 38px;
@@ -131,7 +128,7 @@ main {
     padding: 25px 20px 100px;
   }
   * .container .post_area .user_post .user_info {
-    margin-bottom: 15px;
+    margin-bottom: -8vw;
   }
   * .container .post_add {
     right: 20px;
@@ -163,7 +160,7 @@ main {
     padding: 25px 20px 220px;
   }
   * .container .post_area .user_post .user_info {
-    margin-bottom: 15px;
+    margin-bottom: -8vw;
   }
   * .container .post_add {
     right: 20px;

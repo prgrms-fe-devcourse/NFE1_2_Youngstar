@@ -5,7 +5,7 @@ import '../styles/css/MainPage.css';
 
 const MainPage = () => {
     return (
-        <>
+        <div className="page-container">
             <Follower />
             <div className='post_area'>
                 <Post />
@@ -14,7 +14,7 @@ const MainPage = () => {
                 <Post />
             </div>
             <button className='post_add'>+</button>
-        </>
+        </div>
     )
 }
 
