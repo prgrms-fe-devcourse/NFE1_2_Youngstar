@@ -1,6 +1,7 @@
 import Notice from '../components/Notice';
 import PageHeader from '../components/PageHeader';
 import '../styles/css/NotificationPage.css'
+
 const NotificationPage = () => {
     return(
         <>
@@ -13,7 +14,6 @@ const NotificationPage = () => {
             </div>
         </>
     )
-
 }
 
 export default NotificationPage;

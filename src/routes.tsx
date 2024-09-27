@@ -11,12 +11,9 @@ const routes = [
     children: [
       { path: '/', element: <MainPage /> },
       { path: '/mypage', element: <MyPage /> },
-
       { path: '/notification', element: <NotificationPage /> },
       { path: '/chatting', element: <ChatPage /> },
-
       { path: '/detailpage', element: <DetailPage /> },
-
     ],
   },
 ];

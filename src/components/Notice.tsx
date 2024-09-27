@@ -1,5 +1,6 @@
 import '../styles/css/NotificationPage.css'
 
+
 const Notice = () => {
     return(
         <div className="notification-box">
