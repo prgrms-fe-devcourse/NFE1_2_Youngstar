@@ -13,7 +13,16 @@
                 width: 25px;
                 height: 25px;
                 background: center/100% no-repeat;
-                background-image: url("../assets/nav#{$i}.png");
+                background-image: url("../../assets/nav#{$i}.svg");
+                margin: 0 auto 50px;
+            }
+        }
+        @for $i from 1 through 7 {
+            li:nth-child(#{$i}).on {
+                width: 25px;
+                height: 25px;
+                background: center/100% no-repeat;
+                background-image: url("../../assets/nav_on#{$i}.svg");
                 margin: 0 auto 50px;
             }
         }

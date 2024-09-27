@@ -1,17 +1,17 @@
 import React from 'react';
-import '../styles/Navbar.css';
+import '../styles/css/Navbar.css';
 
 const Navbar = () => {
     return (
         <div className='nav'>
             <ul>
-                <li></li>{/*  home */}
-                <li></li>{/*  hot */}
-                <li></li>{/*  chat */}
-                <li></li>{/*  scrap */}
-                <li></li>{/*  alram */}
-                <li></li>{/*  map */}
-                <li></li>{/*  mypage */}
+                <li className='go_homne on'></li>
+                <li className='go_hot'></li>
+                <li className='go_chat'></li>
+                <li className='go_scrap'></li>
+                <li className='go_alram'></li>
+                <li className='go_map'></li>
+                <li className='go_mypage'></li>
             </ul>
         </div>
     );
