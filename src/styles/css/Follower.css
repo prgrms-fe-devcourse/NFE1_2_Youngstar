@@ -1,8 +1,9 @@
 .follower_area {
-  width: 100%;
+  max-width: 600px;
   height: 95px;
   background: #fff;
   border-bottom: 2px solid #d9d9d9;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   overflow: hidden;

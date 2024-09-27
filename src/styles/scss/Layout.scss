@@ -24,7 +24,6 @@
         // 반응형 최소
         @include minimum {
             .header {
-                height: 60px;
                 padding: 0 10px;
 
                 .res_header {
@@ -89,7 +88,6 @@
         // 반응형 모바일부터 태블릿
         @include mobile {
             .header {
-                height: 60px;
                 padding: 0 20px;
 
                 .res_header {
@@ -138,7 +136,6 @@
         // 반응형 최대
         @include tabletToMobile {
             .header {
-                height: 60px;
                 padding: 0 20px;
             }
             .nav {
