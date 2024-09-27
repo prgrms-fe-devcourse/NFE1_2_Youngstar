@@ -4,6 +4,7 @@ import Post from "../components/Post";
 import '../styles/css/MainPage.css';
 
 const MainPage = () => {
+
     return (
         <>
             <Follower />
