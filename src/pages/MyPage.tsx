@@ -2,11 +2,21 @@ import "../styles/scss/Mypage.scss";
 import profilePhoto from "../assets/chun_bong.png";
 import settingIcon from "../assets/Setting.svg";
 
+import { useState } from "react";
+import SetModal from "./SettingModal";
+
 const MyPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 관리
+
+  // 모달 열기/닫기 함수
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <div className="page-container">
       <div className="setting-section">
-        <img className="setting" src={settingIcon} alt="Setting" />
+        <img className="setting" src={settingIcon} alt="Setting" onClick={toggleModal}/>
       </div>
       <div className="profile-section">
         <img className="profile-image" src={profilePhoto} alt="Profile" />
@@ -25,7 +35,10 @@ const MyPage = () => {
       </div>
       <div className="tab-content">
         <p>탭하면 보이는 공간</p>
-      </div>w
+      </div>
+
+      {/* 모달이 열렸을 때만 Modal 컴포넌트 렌더링 */}
+      {isModalOpen && <SetModal onClose={toggleModal} />}
     </div>
   );
 };
