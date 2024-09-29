@@ -43,12 +43,14 @@
 .input-bar {
   display: flex;
   width: 100%;
+  max-width: 600px;
   height: 50px;
   align-items: center;
   background-color: #F2F2F2;
   position: absolute;
   bottom: 0;
   padding: 0 10px;
+  box-sizing: border-box;
 }
 .input-bar input {
   margin-left: 6px;
@@ -71,7 +73,6 @@
   max-width: 600px;
   background-color: #FFFFFF;
   margin: 0 auto;
-  height: calc(100vh - 30px);
+  height: calc(100vh - 63px);
   width: 100%;
-  position: relative;
 }

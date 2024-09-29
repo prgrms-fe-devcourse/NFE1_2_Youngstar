@@ -5,6 +5,7 @@ import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
 import LoginPage from './pages/LoginPage';
 import NotificationPage from './pages/NotificationPage';
+import PostFormPage from './pages/PostFormPage';
 
 const routes = [
   {
@@ -16,6 +17,7 @@ const routes = [
       { path: '/notification', element: <NotificationPage /> },
       { path: '/chatting', element: <ChatPage /> },
       { path: '/detailpage', element: <DetailPage /> },
+      { path: '/postform', element: <PostFormPage /> },
     ],
   },
 ];

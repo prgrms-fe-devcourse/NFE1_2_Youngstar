@@ -101,6 +101,14 @@
                 font-size: 35px;
                 line-height: 30px;
             }
+
+            .input-bar{
+                bottom: 63px;
+            }
+
+            .content-box > button{
+                bottom: 63px;
+            }
         }
         // 반응형 모바일부터 태블릿
         @include mobile {
@@ -131,7 +139,7 @@
                     li {
                         margin: 0 auto !important;
                     }
-                    li:nth-child(6),li:nth-child(7) {
+                    li:nth-child(4),li:nth-child(5) {
                         display: none;
                     }
                 }
@@ -148,6 +156,14 @@
             .post_add {
                 right: 20px;
                 bottom: 90px;
+            }
+
+            .input-bar{
+                bottom: 63px;
+            }
+
+            .content-box > button{
+                bottom: 63px;
             }
         }
         // 반응형 최대
@@ -185,6 +201,14 @@
             .post_add {
                 right: 20px;
                 bottom: 110px;
+            }
+
+            .input-bar{
+                bottom: 63px;
+            }
+
+            .content-box > button{
+                bottom: 63px;
             }
         }
     }
