@@ -1,14 +1,54 @@
 import "../styles/scss/Setting.scss";
+import profileImage from "../assets/chun_bong.png";
+import settingIcon from "../assets/Setting.svg";
 
 const SettingModal = ({ onClose }: { onClose: () => void }) => {
-    return (
-        <div className="settingContainer">
-            <div className="setting-content">
-                <p>모달 1차 테스트</p>
-                <button onClick={onClose}>수정</button>
-            </div>                
+  return (
+    <div className="settingContainer">
+      <div className="setting-content">
+        {/* 프로필(사진, 아이디, 비밀번호) */}
+        <div className="profile-section">
+          <div className="image-container">
+            <img
+              className="setting-image"
+              src={profileImage}
+              alt="setting-image"
+            />
+            {/* 프로필 사진 수정 버튼 */}
+            <button className="setting-btn">
+              <img src={settingIcon} alt="Setting" />
+            </button>
+          </div>
+
+          <div className="setting-user-info">
+            <p className="setting-user-id">chun_bong</p>
+            <p className="setting-user-email">pcb_cat@naver.com</p>
+          </div>
         </div>
-    );
+
+        {/* 비밀번호 */}
+        <div className="password-section">
+          <label htmlFor="current-password">기존 비밀번호 확인</label>
+          <input type="password" id="current-password" />
+
+          <label htmlFor="new-password">새 비밀번호 입력</label>
+          <input type="password" id="new-password" />
+        </div>
+
+        {/* 자기소개 */}
+        <div className="intro-section">
+          <label htmlFor="intro">자기소개 수정</label>
+          <textarea id="intro-textarea" />
+        </div>
+
+        {/* 임시로 추가한 수정 취소 버튼들 */}
+        <div className="settingbutton-section">
+          <button className="fix-button" onClick={onClose}>수정</button>
+          <button className="cancel-button" onClick={onClose}>취소</button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default SettingModal;

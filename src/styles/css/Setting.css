@@ -18,3 +18,44 @@
   background-color: white;
   z-index: 1001;
 }
+.settingContainer .setting-content .profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.settingContainer .setting-content .profile-section .image-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.settingContainer .setting-content .profile-section .setting-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.settingContainer .setting-content .profile-section .setting-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.settingContainer .setting-content .profile-section .setting-btn img {
+  width: 25px;
+  height: 25px;
+}
+.settingContainer .setting-content .profile-section .setting-user-info {
+  margin-top: 15px;
+  text-align: center;
+}
+.settingContainer .setting-content .profile-section .setting-user-info .setting-user-id {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
+.settingContainer .setting-content .profile-section .setting-user-info .setting-user-email {
+  font-size: 15px;
+  font-weight: bold;
+  color: #bcbcbc;
+}
