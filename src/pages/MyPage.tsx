@@ -1,14 +1,14 @@
 import "../styles/scss/Mypage.scss"; 
-import profilePhoto from "../assets/chun_bong.png";
+import profileImage from "../assets/chun_bong.png";
 import settingIcon from "../assets/Setting.svg";
 
 import { useState } from "react";
 import SetModal from "./SettingModal";
 
 const MyPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 관리
+  const [isModalOpen, setIsModalOpen] = useState(false); // 0928 - 모달 상태 관리 추가
 
-  // 모달 열기/닫기 함수
+  // 0928 - 모달 열기/닫기 함수 추가 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -19,8 +19,8 @@ const MyPage = () => {
         <img className="setting" src={settingIcon} alt="Setting" onClick={toggleModal}/>
       </div>
       <div className="profile-section">
-        <img className="profile-image" src={profilePhoto} alt="Profile" />
-        <h2 className="userid">chun_bong</h2>
+        <img className="profile-image" src={profileImage} alt="Profile" />
+        <h2 className="user-id">chun_bong</h2>
         <div>
           <p className="introduce-text">
             안녕 나는 박춘봉이다 여기는 자기소개문구 입력란이다. 자기소개 문구
@@ -37,8 +37,8 @@ const MyPage = () => {
         <p>탭하면 보이는 공간</p>
       </div>
 
-      {/* 모달이 열렸을 때만 Modal 컴포넌트 렌더링 */}
-      {isModalOpen && <SetModal onClose={toggleModal} />}
+      {/* 0928 - 모달이 열릴 때만 렌더링 추가 */}
+      {isModalOpen && <SetModal onClose={toggleModal} />} 
     </div>
   );
 };
