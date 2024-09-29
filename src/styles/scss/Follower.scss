@@ -1,0 +1,49 @@
+.follower_area {
+    max-width: 600px;
+    height: 95px;
+    background: #fff;
+    border-bottom: 2px solid #d9d9d9;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    ul {
+        padding: 0 10px 5px;
+        display: flex;
+        overflow-x: scroll;
+        -ms-overflow-style: none;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        // &::-webkit-scrollbar-thumb {
+        //     border-radius: 3.5px;
+        //     background-color: #FFE68B;
+        
+        //     &:hover {
+        //     background-color: #ffdc5f;
+        //     }
+        // }
+        // &::-webkit-scrollbar-track {
+        //     background: #d9d9d9;
+        // }
+        
+        li {
+            margin-right: 16px;
+            text-align: center;
+
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: #000;
+            }
+
+            p {
+                font-size: 11px;
+                color: #000;
+            }
+        }
+    }
+}

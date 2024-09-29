@@ -52,9 +52,10 @@
     width: 100%;
     height: 50px;
     align-items: center;
-    background-color: #FFE27B;
+    background-color: #F2F2F2;
     position: absolute;
     bottom: 0;
+    padding: 0 10px;
 
     input{
         margin-left: 6px;
@@ -65,18 +66,22 @@
     }
 
     button{
-        width: 45px;
+        width: 35px;
         border: none;
         background-color: transparent;
     }
 
     img{
         width: 100%;
+        margin-left: 5px;
     }
 
 }
 
 .page-container{
+    max-width: 600px;
+    background-color: #FFFFFF;
+    margin: 0 auto;
     height: calc(100vh - 30px);
     width: 100%;
     position: relative;
