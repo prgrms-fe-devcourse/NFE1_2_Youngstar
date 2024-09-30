@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import "../styles/css/join.css"
+
 import bigLogo from "../assets/bigLogo.png"
 import Group from"../assets/Group.png"
 import Group1 from"../assets/Group1.png"
@@ -46,7 +47,7 @@ return(
             <h1>회원가입</h1>
             <p>친구들의 사진과 동영상을 보려면 가입하세요.</p>
 {/* 이메일 입력 */}
-            <div className="form-group">
+            <div className="join-form-group">
                 <label htmlFor="join-email">이메일</label>
                 <input 
                 type="text"
@@ -59,7 +60,7 @@ return(
                 />
             </div>
             {/* 아이디 입력 */}
-            <div className="form-group">
+            <div className="join-form-group">
                 <label htmlFor="id">아이디</label>
                 <div className="id-container">
                 <input 
@@ -79,29 +80,29 @@ return(
                
                 </div>
             </div>
-            <div className="form-group">
+            <div className="join-form-group">
                 <label htmlFor="password">비밀번호</label>
                 <div className="password-container">
-                <input 
-                type={showPassword ?"text":"password"}
-                id="password"
-                name="password"
-                placeholder="비밀번호를 입력하세요"
-                value={formState.password}
-                onChange={updateValue}
-                required
-                />
-                <button
-                type='button'
-                onClick={togglePasswordVisibility}
-                className='password-toggle'>
-                {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
-                </button>
+                    <input 
+                    type={showPassword ?"text":"password"}
+                    id="password"
+                    name="password"
+                    placeholder="비밀번호를 입력하세요"
+                    value={formState.password}
+                    onChange={updateValue}
+                    required
+                    />
+                    <button
+                    type='button'
+                    onClick={togglePasswordVisibility}
+                    className='join-password-toggle'>
+                    {showPassword ? <AiFillEyeInvisible color='black'/> : <AiFillEye color='black'/>}
+                    </button>
                 </div>
             </div>
-            <div className="form-group">
+            <div className="join-form-group">
                 <label htmlFor="checkpassword">비밀번호 확인</label>
-                <div className="check-password-container">
+                <div className="password-container">
                 <input 
                 type={showCheckPassword? "text":"password"}
                 id="checkpassword"
@@ -115,9 +116,9 @@ return(
               <button
               type="button"
               onClick={toggleCheckPasswordVisibility}
-              className="password-toggle"
+              className="join-password-toggle"
             >
-              {showCheckPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+              {showCheckPassword ? <AiFillEyeInvisible color='black' /> : <AiFillEye color='black'/>}
               </button>
                 </div>
             </div>
@@ -130,9 +131,7 @@ return(
         </form>
 
         <div className='logo-container'>
-        <img  src={Group} className='left'></img>
-        <img  src={bigLogo} className='big'/>
-        <img src={Group1} className='right'></img>
+            <img src='src/assets/pageLogo.png'></img>
         </div>
  
     </div>
