@@ -1,15 +1,13 @@
+.main-container {
+  margin: 0 auto;
+}
+
 .post_area {
   background: #fff;
   padding: 25px 75px 160px;
   max-width: 600px;
   height: 100%;
-  margin: 0 auto;
   overflow-y: auto;
-}
-.post_area::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  background: #d9d9d9;
 }
 .post_area::-webkit-scrollbar-thumb {
   border-radius: 3.5px;
@@ -35,4 +33,11 @@
   font-size: 45px;
   line-height: 48px;
   text-align: center;
+}
+.post_add a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.post_add a :visited {
+  color: #FFFFFF;
 }

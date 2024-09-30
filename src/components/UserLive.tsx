@@ -6,47 +6,47 @@ const Follower = () => {
         <div className='follower_area'>
             <ul>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
                 <li>
-                    <img src='' />
+                    <img src='src/assets/chun_bong.png' />
                     <p>chun_bong</p>
                 </li>
             </ul>

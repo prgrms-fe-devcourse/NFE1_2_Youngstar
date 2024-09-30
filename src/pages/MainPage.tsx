@@ -5,7 +5,7 @@ import '../styles/css/MainPage.css';
 
 const MainPage = () => {
     return (
-        <>
+        <div className="page-container">
             <Follower />
             <div className='post_area'>
                 <Post />
@@ -13,8 +13,10 @@ const MainPage = () => {
                 <Post />
                 <Post />
             </div>
-            <button className='post_add'>+</button>
-        </>
+            <button className='post_add'>
+                <Link to={'/postform'}>+</Link>
+            </button>
+        </div>
     )
 }
 

@@ -1,14 +1,16 @@
-import React from 'react';
 import Logo from '../assets/header_logo.svg';
 import SearchRes from '../assets/res_header_search.svg';
 import AlramRes from '../assets/res_header_alram.svg';
 import ScrapRes from '../assets/res_header_scrap.svg';
 import '../styles/css/Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <div className='header'>
-            <img src={Logo} />
+            <Link to={'/'}>
+                <img src={Logo} />
+            </Link>
             <div className='search_area'>
                 <button className='search_btn' type='submit'></button>
                 <input type="text" name='' className='search_txt' placeholder='검색' />

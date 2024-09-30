@@ -4,7 +4,6 @@ import '../styles/css/Layout.css';
 import Navbar from './Navbar';
 
 
-
 export default function Layout() {
   return (
     <div className='container'>
