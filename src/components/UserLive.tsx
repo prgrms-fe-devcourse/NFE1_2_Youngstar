@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/css/Follower.css';
+import '../styles/css/UserLive.css';
 
 const Follower = () => {
     return (
