@@ -91,6 +91,11 @@ main {
     font-size: 35px;
     line-height: 30px;
   }
+  * .container .input-bar {
+    bottom: 63px;
+  }
+  * .container .content-box > button {
+    bottom: 63px;
   * .container .page-container {
     padding-bottom: 63px;
   }
@@ -123,7 +128,7 @@ main {
   * .container .nav ul li {
     margin: 0 auto !important;
   }
-  * .container .nav ul li:nth-child(6), * .container .nav ul li:nth-child(7) {
+  * .container .nav ul li:nth-child(4), * .container .nav ul li:nth-child(5) {
     display: none;
   }
   * .container .post_area {
@@ -136,6 +141,11 @@ main {
     right: 20px;
     bottom: 90px;
   }
+  * .container .input-bar {
+    bottom: 63px;
+  }
+  * .container .content-box > button {
+    bottom: 63px;
   * .container .page-container {
     padding-bottom: 63px;
   }
@@ -171,6 +181,11 @@ main {
     right: 20px;
     bottom: 110px;
   }
+  * .container .input-bar {
+    bottom: 63px;
+  }
+  * .container .content-box > button {
+    bottom: 63px;
   * .container .page-container {
     padding-bottom: 63px;
   }

@@ -13,7 +13,9 @@ const MainPage = () => {
                 <Post />
                 <Post />
             </div>
-            <button className='post_add'>+</button>
+            <button className='post_add'>
+                <Link to={'/postform'}>+</Link>
+            </button>
         </div>
     )
 }
