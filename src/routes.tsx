@@ -8,8 +8,6 @@ import JoinPage from './pages/JoinPage'
 import NotificationPage from './pages/NotificationPage';
 import PostFormPage from './pages/PostFormPage';
 import StarredPage from './pages/StarredPage';
-import APITest from './pages/APITest'; //테스트용
-import SignupTest from './pages/SignupTest'; //테스트용
 
 const routes = [
   {
@@ -24,8 +22,6 @@ const routes = [
       { path: '/saved', element: <StarredPage /> },
       { path: '/detailpage', element: <DetailPage /> },
       { path: '/postform', element: <PostFormPage /> },
-      { path: '/testapi', element: <APITest /> }, //테스트용 라우트 추가
-      { path: '/signtest', element: <SignupTest /> },
     ],
   },
 ];

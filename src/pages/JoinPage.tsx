@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import "../styles/css/join.css";
 import welcomeLogo from "../assets/welcomeLogo.svg";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useAuth } from "../hooks/useAuth";
 
-const LoginPage: React.FC = () => {
+const JoinPage: React.FC = () => {
+  const { signup } = useAuth();
+
   const [formState, setFormState] = useState({
     email: "",
     id: "",
     password: "",
     checkpassword: "",
   });
+
   //비밀번호 표시 여부
   const [showPassword, setShowPassword] = useState(false);
   const [showCheckPassword, setShowCheckPassword] = useState(false);
@@ -18,21 +22,30 @@ const LoginPage: React.FC = () => {
   const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormState({
       ...formState,
-      [e.target.name]: e.target.value, //입력한값 id,password :사용자 입력값
+      [e.target.name]: e.target.value,
     });
   };
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword); // 버튼 클릭 시 가시성 토글
+    setShowPassword(!showPassword);
+    console.log(setShowPassword);
   };
 
   const toggleCheckPasswordVisibility = () => {
-    setShowCheckPassword(!showCheckPassword); // 비밀번호 확인 표시 여부 토글
+    setShowCheckPassword(!showCheckPassword);
   };
 
-  //로그인 버튼을 누르면 콘솔창에 현재값 출력
-  const handleSubmit = (e: React.FormEvent) => {
+  //1001 추가 - API 호출
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // 제출시 새로고침 막기
-    console.log("Form Submitted:", formState); //콘솔에 id,password값이 출력됨
+
+    // 1001 추가 - 입력한 비번하고 맞지않으면 alert 기능
+    if (formState.password !== formState.checkpassword) { 
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
+    await signup(formState.email, formState.id, formState.password);
+    console.log("제출 :", formState);
   };
 
   return (
@@ -40,6 +53,7 @@ const LoginPage: React.FC = () => {
       <form className="join-form" onSubmit={handleSubmit}>
         <h1>회원가입</h1>
         <p>친구들의 사진과 동영상을 보려면 가입하세요.</p>
+
         {/* 이메일 입력 */}
         <div className="join-form-group">
           <label htmlFor="join-email">이메일</label>
@@ -53,6 +67,7 @@ const LoginPage: React.FC = () => {
             required
           />
         </div>
+
         {/* 아이디 입력 */}
         <div className="join-form-group">
           <label htmlFor="id">아이디</label>
@@ -66,11 +81,9 @@ const LoginPage: React.FC = () => {
               onChange={updateValue}
               required
             />
-            {/* 비밀번호입력창 */}
-
-            {/* 눈모양 아이콘 추가하여 클릭하면 비밀번호여부 */}
           </div>
         </div>
+
         <div className="join-form-group">
           <label htmlFor="password">비밀번호</label>
           <div className="password-container">
@@ -96,6 +109,7 @@ const LoginPage: React.FC = () => {
             </button>
           </div>
         </div>
+
         <div className="join-form-group">
           <label htmlFor="checkpassword">비밀번호 확인</label>
           <div className="password-container">
@@ -134,12 +148,12 @@ const LoginPage: React.FC = () => {
           </span>
         </div>
       </form>
-
-      <div className="logo-container">
-        <img src={welcomeLogo}></img>
+      {/* 회원가입페이지에서 우측 크게 보이는 로고 */}
+      <div className="rightlogo-container">
+        <img src={welcomeLogo} alt="welcome logo" />
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default JoinPage;
