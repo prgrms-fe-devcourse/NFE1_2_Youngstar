@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import "../styles/css/login.css";
-import bigLogo from "../assets/bigLogo.png";
-import Group from "../assets/Group.png";
-import Group1 from "../assets/Group1.png";
+import "../styles/scss/Login.scss";
+import welcomeLogo from "../assets/welcomeLogo.svg"; //1001 - 로그인&회원가입 우측 로고 파일 변경
 
 const LoginPage: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -83,9 +81,9 @@ const LoginPage: React.FC = () => {
           </span>
         </div>
       </form>
-      <img src={Group}></img>
-      <img src={bigLogo} />
-      <img src={Group1}></img>
+      <div className="rightlogo-container">
+        <img src={welcomeLogo} />
+      </div>
     </div>
   );
 };
