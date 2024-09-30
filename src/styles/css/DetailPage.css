@@ -275,3 +275,27 @@
   margin: 0 auto;
   display: block;
 }
+@media (max-width: 335px) {
+  .detail_area .detail_post {
+    padding-bottom: 180px;
+  }
+  .detail_area .detail_post .comment_post_area {
+    bottom: 80px !important;
+  }
+}
+@media (min-width: 335px) and (max-width: 534px) {
+  .detail_area .detail_post {
+    padding-bottom: 160px;
+  }
+  .detail_area .detail_post .comment_post_area {
+    bottom: 63px !important;
+  }
+}
+@media (min-width: 535px) and (max-width: 719px) {
+  .detail_area .detail_post {
+    padding-bottom: 160px;
+  }
+  .detail_area .detail_post .comment_post_area {
+    bottom: 63px !important;
+  }
+}

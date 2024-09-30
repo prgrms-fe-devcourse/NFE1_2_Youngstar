@@ -1,3 +1,4 @@
+@import './mixin';
 
 .detail_area {
     overflow: hidden;
@@ -308,6 +309,32 @@
                 border-radius: 10px;
                 margin: 0 auto;
                 display: block;
+            }
+        }
+    }
+    @include minimum {
+        .detail_post {
+            padding-bottom: 180px;
+            .comment_post_area {
+                bottom: 80px !important;
+            }
+        }
+        
+    }
+    @include mobile {
+        .detail_post {
+            padding-bottom: 160px;
+            .comment_post_area {
+                bottom: 63px !important;
+            }
+        }
+        
+    }
+    @include tabletToMobile { 
+        .detail_post {
+            padding-bottom: 160px;
+            .comment_post_area {
+                bottom: 63px !important;
             }
         }
     }
