@@ -4,6 +4,7 @@ import ChatPage from './pages/ChatPage';
 import MainPage from './pages/MainPage';
 import MyPage from './pages/MyPage';
 import LoginPage from './pages/LoginPage';
+import JoinPage from './pages/JoinPage'
 import NotificationPage from './pages/NotificationPage';
 import PostFormPage from './pages/PostFormPage';
 import StarredPage from './pages/StarredPage';
@@ -14,6 +15,7 @@ const routes = [
     children: [
       { path: '/', element: <MainPage /> },
       { path: '/mypage', element: <MyPage /> },
+      { path: '/joinPage', element:<JoinPage/>}
       { path: '/loginpage', element: <LoginPage /> },
       { path: '/notification', element: <NotificationPage /> },
       { path: '/chatting', element: <ChatPage /> },
