@@ -1,0 +1,105 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .join-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #FFE68B;
+    position: relative;
+  }
+  
+  .join-form {
+    background-color: #fff;
+    padding: 5rem;
+    border-radius: 10px;
+    border: 1px solid;
+    height: 65%;
+    width: 25%;
+    text-align: center;
+    margin-right:70px ;
+  }
+  
+  .join-form p {
+    margin-top: 1rem;
+  }
+  .join-form h1 {
+    margin-bottom: 5px;
+
+  }
+  
+  h1, p {
+    text-align: left;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-top: 3rem;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    height: 50px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid;
+    border-radius: 5px;
+    
+  }
+  
+  
+  
+  .login-btn {
+    width: 105%;
+    height: 70px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+
+ 
+  
+  .singup-link {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+.logo-container .left, .logo-container .right {
+    width: 200px;                    
+    padding-right: 40px;   
+}
+  
+
+.password-container input{
+    width: 100%;
+    padding-right: 30px;
+}
+.password-container {
+    position: relative; /* 버튼 위치를 필드 내부로 설정하기 위해 상대 위치 지정 */
+  }
+  
+  .password-toggle {
+    position: absolute; 
+    right: 10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: none;
+    border: none;
+    cursor: pointer; 
+  }
+

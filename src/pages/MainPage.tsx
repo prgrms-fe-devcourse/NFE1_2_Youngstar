@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+// import { Link } from './joinPage'
 
 const MainPage = () => {
     return (<>
@@ -8,6 +9,7 @@ const MainPage = () => {
         </Link>
         <Link to ='/loginPage'>
         </Link>
+        <Link to='/joinPage'>회원가입</Link> 
     </>)
 }
 
