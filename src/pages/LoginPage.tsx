@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import "../styles/scss/Login.scss";
 import welcomeLogo from "../assets/welcomeLogo.svg"; //1001 - 로그인&회원가입 우측 로고 파일 변경
+import { useAuth } from '../hooks/useAuth';
 
 const LoginPage: React.FC = () => {
+  const { login } = useAuth();
   const [formState, setFormState] = useState({
-    id: "",
+    email: "",
     password: "",
   });
+
   //비밀번호 표시 여부
   const [showPassword, setShowPassword] = useState(false);
 
@@ -14,16 +17,19 @@ const LoginPage: React.FC = () => {
   const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormState({
       ...formState,
-      [e.target.name]: e.target.value, //입력한값 id,password :사용자 입력값
+      [e.target.name]: e.target.value, 
     });
   };
   const togglepasswordVisibility = () => {
     setShowPassword(!showPassword);
+    console.log(setShowPassword)
   };
-  //로그인 버튼을 누르면 콘솔창에 현재값 출력
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // 제출시 새로고침 막기
-    console.log("Form Submitted:", formState); //콘솔에 id,password값이 출력됨
+
+  // 1001 추가 - API 호출
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("폼 제출 완료:", formState); 
+    await login(formState.email, formState.password); 
   };
 
   return (
@@ -32,25 +38,27 @@ const LoginPage: React.FC = () => {
         <h2>환영합니다!</h2>
         <h1>로그인 하세요</h1>
         <p>6팀 프로젝트</p>
-        {/* 아이디 입력 */}
+
+        {/* 이메일 입력 */}
         <div className="form-group">
-          <label htmlFor="id">아이디</label>
+          <label htmlFor="email">이메일</label>
           <input
-            type="text"
-            id="id"
-            name="id"
-            placeholder="아이디를 입력하세요 "
-            value={formState.id}
+            type="email"
+            id="email"
+            name="email"
+            placeholder="이메일을 입력하세요"
+            value={formState.email}
             onChange={updateValue}
             required
           />
         </div>
+
         {/* 비밀번호 입력 */}
         <div className="form-group">
           <label htmlFor="password">비밀번호</label>
           <div className="password-container">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               name="password"
               placeholder="비밀번호를 입력하세요"
@@ -58,8 +66,6 @@ const LoginPage: React.FC = () => {
               onChange={updateValue}
               required
             />
-
-            {/* 눈모양 아이콘 추가하여 클릭하면 비밀번호여부 */}
             <button
               type="button"
               className="password-toggle"
@@ -69,20 +75,19 @@ const LoginPage: React.FC = () => {
             </button>
           </div>
         </div>
-        {/* 로그인버튼 */}
+        {/* 로그인 버튼 */}
         <button type="submit" className="login-btn">
           로그인
         </button>
         {/* 회원가입 */}
-        <div className="singup-link">
+        <div className="signup-link">
           <span>
-            {" "}
             계정이 없으신가요? <a href="">가입하기</a>
           </span>
         </div>
       </form>
       <div className="rightlogo-container">
-        <img src={welcomeLogo} />
+        <img src={welcomeLogo} alt="welcome logo" />
       </div>
     </div>
   );

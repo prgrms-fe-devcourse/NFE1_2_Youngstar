@@ -21,6 +21,7 @@ export const useAuth = () => {
     baseURL: baseurl,
   });
 
+  // 로그인
   const login = async (email: string, password: string) => {
     try {
       const response = await api.post<AuthResponse>("/login", {
@@ -35,6 +36,7 @@ export const useAuth = () => {
     }
   };
 
+  // 회원가입
   const signup = async (email: string, fullName: string, password: string) => {
     try {
       const response = await api.post<AuthResponse>("/signup", {
