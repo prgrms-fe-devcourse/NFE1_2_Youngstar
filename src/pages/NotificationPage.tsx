@@ -11,6 +11,19 @@ const NotificationPage = () => {
                 <Notice />
                 <Notice />
                 <Notice />
+                <Notice />
+                <Notice />
+                <Notice />
+                <Notice />
+                <Notice />
+                <Notice />
+                <Notice />
+                <Notice />
+                <Notice />
+                <Notice />
+                <Notice />
+                <Notice />
+
             </div>
         </div>
     )

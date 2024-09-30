@@ -24,7 +24,6 @@ main {
 * .container {
   margin: auto;
   width: 100vw;
-  height: 100vh;
   overflow: hidden;
   background: #FFE68B;
 }
@@ -97,6 +96,8 @@ main {
   }
   * .container .content-box > button {
     bottom: 63px;
+  * .container .page-container {
+    padding-bottom: 63px;
   }
 }
 @media (min-width: 335px) and (max-width: 534px) {
@@ -145,6 +146,8 @@ main {
   }
   * .container .content-box > button {
     bottom: 63px;
+  * .container .page-container {
+    padding-bottom: 63px;
   }
 }
 @media (min-width: 535px) and (max-width: 719px) {
@@ -183,5 +186,7 @@ main {
   }
   * .container .content-box > button {
     bottom: 63px;
+  * .container .page-container {
+    padding-bottom: 63px;
   }
 }

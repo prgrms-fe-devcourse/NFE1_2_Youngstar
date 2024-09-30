@@ -58,6 +58,7 @@
     bottom: 0;
     padding: 0 10px;
     box-sizing: border-box;
+    justify-content: center;
 
     input{
         margin-left: 6px;
@@ -88,3 +89,7 @@
     width: 100%;
 }
 
+.chat-page{
+    display: flex;
+    justify-content: center;
+}
