@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Follower from "../components/Follower";
+import Follower from "../components/UserLive";
 import Post from "../components/Post";
 import '../styles/css/MainPage.css';
 
