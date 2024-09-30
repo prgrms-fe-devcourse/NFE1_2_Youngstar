@@ -2,14 +2,19 @@
     box-sizing: border-box;
     width: 100%;
     padding: 15px;
-    padding-top: 57.2px;
+    padding-top: 0;
     max-width: 600px;
+    overflow-y: scroll;
 }
 
 .button-container{
     width: 100%;
+    max-width: 600px;
     display: flex;
     justify-content: flex-end;
+    position: relative;
+    top: -47px;
+    z-index: 100;
 
     button{
         padding-right: 20px;
@@ -17,6 +22,7 @@
         border: none;
         font-size: 30px;
         cursor: pointer;
+        position: fixed;
     }
 }
 
@@ -24,6 +30,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     text-align: center;
+    padding-top: -10px;
 }
 
 .folder-box{
@@ -42,4 +49,6 @@
         }
     }
 
+
+   
 }

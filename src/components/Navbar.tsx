@@ -36,8 +36,8 @@ const Navbar = () => {
                 <li className='go_chat' data-path="/chatting">
                     <Link to={'/chatting'}></Link>
                 </li>
-                <li className='go_scrap' data-path="#">
-                    <Link to={'#'}></Link>
+                <li className='go_scrap' data-path="/saved">
+                    <Link to={'/saved'}></Link>
                 </li>
                 <li className='go_alram' data-path="/notification">
                     <Link to={'#'}></Link>

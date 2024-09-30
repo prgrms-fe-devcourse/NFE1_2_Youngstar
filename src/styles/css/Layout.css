@@ -24,7 +24,6 @@ main {
 * .container {
   margin: auto;
   width: 100vw;
-  height: 100vh;
   overflow: hidden;
   background: #FFE68B;
 }
@@ -92,6 +91,9 @@ main {
     font-size: 35px;
     line-height: 30px;
   }
+  * .container .page-container {
+    padding-bottom: 63px;
+  }
 }
 @media (min-width: 335px) and (max-width: 534px) {
   * .container .header {
@@ -134,6 +136,9 @@ main {
     right: 20px;
     bottom: 90px;
   }
+  * .container .page-container {
+    padding-bottom: 63px;
+  }
 }
 @media (min-width: 535px) and (max-width: 719px) {
   * .container .header {
@@ -165,5 +170,8 @@ main {
   * .container .post_add {
     right: 20px;
     bottom: 110px;
+  }
+  * .container .page-container {
+    padding-bottom: 63px;
   }
 }

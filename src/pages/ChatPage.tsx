@@ -3,7 +3,7 @@ import '../styles/css/ChatPage.css'
 
 const ChatPage = () => {
     return (
-        <>
+        <div className="chat-page">
             <div className="page-container">
                 <PageHeader>채팅창</PageHeader>
                 <div className="chat-container">
@@ -47,15 +47,15 @@ const ChatPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="input-bar">
+            </div>
+            <div className="input-bar">
                     <input type="text" />
                     <button type="submit">
                         <img src="src/assets/send.png" />
                     </button>
                 </div>
-            </div>
             
-        </>
+        </div>
     );
 }
 

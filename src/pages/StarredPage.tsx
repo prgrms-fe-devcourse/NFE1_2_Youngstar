@@ -4,8 +4,9 @@ import '../styles/css/StarredPage.css'
 const StarredPage = () => {
     return(
         <>
-            <PageHeader>즐겨찾기</PageHeader>
             <div className="page-container">
+                <PageHeader>즐겨찾기</PageHeader>
+                <div className="content-box">
                 <div className="button-container">
                     <button>+</button>
                 </div>
@@ -33,28 +34,36 @@ const StarredPage = () => {
                             <img src='src/assets/postImage1.png' />
                         </div>
                         <div>그룹 3</div>
-                    </div><div className="folder-box">
-                        <div className="folder">
-                            <img src='src/assets/postImage1.png' />
-                        </div>
-                        <div>그룹 3</div>
-                    </div><div className="folder-box">
-                        <div className="folder">
-                            <img src='src/assets/postImage1.png' />
-                        </div>
-                        <div>그룹 3</div>
-                    </div><div className="folder-box">
-                        <div className="folder">
-                            <img src='src/assets/postImage1.png' />
-                        </div>
-                        <div>그룹 3</div>
-                    </div><div className="folder-box">
+                    </div>
+                    <div className="folder-box">
                         <div className="folder">
                             <img src='src/assets/postImage1.png' />
                         </div>
                         <div>그룹 3</div>
                     </div>
+                    <div className="folder-box">
+                        <div className="folder">
+                            <img src='src/assets/postImage1.png' />
+                        </div>
+                        <div>그룹 3</div>
+                    </div>
+                    <div className="folder-box">
+                        <div className="folder">
+                            <img src='src/assets/postImage1.png' />
+                        </div>
+                        <div>그룹 3</div>
+                    </div>
+                    <div className="folder-box">
+                        <div className="folder">
+                            <img src='src/assets/postImage1.png' />
+                        </div>
+                        <div>그룹 3</div>
+                    </div>
+                    
                 </div>
+
+                </div>
+                
             </div>
         </>
     )
