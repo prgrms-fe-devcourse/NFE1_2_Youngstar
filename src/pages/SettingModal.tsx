@@ -1,13 +1,26 @@
 import "../styles/scss/Setting.scss";
 import profileImage from "../assets/chun_bong.png";
 import settingIcon from "../assets/Setting.svg";
+import backImg from "../assets/_.png"
 
 const SettingModal = ({ onClose }: { onClose: () => void }) => {
   return (
+    
     <div className="settingContainer">
+      
+
       <div className="setting-content">
+        {/* 뒤로가기 이미지 */}
+      <button className="baack-image" onClick={onClose}>
+          <img src={backImg}alt="back-image"></img>
+         </button>
         {/* 프로필(사진, 아이디, 비밀번호) */}
         <div className="profile-section">
+
+         <p className="title">설정</p>
+
+        
+
           <div className="image-container">
             <img
               className="setting-image"
@@ -24,7 +37,10 @@ const SettingModal = ({ onClose }: { onClose: () => void }) => {
             <p className="setting-user-id">chun_bong</p>
             <p className="setting-user-email">pcb_cat@naver.com</p>
           </div>
+         
         </div>
+        <hr className="top"/>
+      
 
         {/* 비밀번호 */}
         <div className="password-section">
@@ -34,11 +50,13 @@ const SettingModal = ({ onClose }: { onClose: () => void }) => {
           <label htmlFor="new-password">새 비밀번호 입력</label>
           <input type="password" id="new-password" />
         </div>
-
+            
         {/* 자기소개 */}
+        <hr className=" bottom"/>
+
         <div className="intro-section">
           <label htmlFor="intro">자기소개 수정</label>
-          <textarea id="intro-textarea" />
+          <textarea id="intro-textarea" maxLength={50} />
         </div>
 
         {/* 임시로 추가한 수정 취소 버튼들 */}

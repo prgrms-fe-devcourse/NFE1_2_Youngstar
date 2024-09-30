@@ -7,9 +7,11 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   display: flex;
+  /* display: block; */
   justify-content: center;
   align-items: center;
 }
+
 .settingContainer .setting-content {
   position: relative;
   width: 500px;
@@ -18,11 +20,13 @@
   background-color: white;
   z-index: 1001;
 }
+
 .settingContainer .setting-content .profile-section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .settingContainer .setting-content .profile-section .image-container {
   position: relative;
   width: 100px;
