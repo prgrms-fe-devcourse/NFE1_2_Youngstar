@@ -26,7 +26,7 @@
     .container {
         margin: auto;
         width: 100vw;
-        height: 100vh;
+        // height: 100vh;
         overflow: hidden;
         background: #FFE68B;
     
@@ -101,6 +101,10 @@
                 font-size: 35px;
                 line-height: 30px;
             }
+
+            .page-container{
+                padding-bottom: 63px;
+            }
         }
         // 반응형 모바일부터 태블릿
         @include mobile {
@@ -149,6 +153,9 @@
                 right: 20px;
                 bottom: 90px;
             }
+            .page-container{
+                padding-bottom: 63px;
+            }
         }
         // 반응형 최대
         @include tabletToMobile {
@@ -185,6 +192,9 @@
             .post_add {
                 right: 20px;
                 bottom: 110px;
+            }
+            .page-container{
+                padding-bottom: 63px;
             }
         }
     }

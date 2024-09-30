@@ -56,6 +56,8 @@
     position: absolute;
     bottom: 0;
     padding: 0 10px;
+    max-width: 600px;
+    justify-content: center;
 
     input{
         margin-left: 6px;
@@ -84,6 +86,9 @@
     margin: 0 auto;
     height: calc(100vh - 30px);
     width: 100%;
-    position: relative;
 }
 
+.chat-page{
+    display: flex;
+    justify-content: center;
+}
