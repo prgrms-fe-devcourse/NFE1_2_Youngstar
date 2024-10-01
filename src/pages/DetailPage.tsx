@@ -7,9 +7,16 @@ import Like from '../assets/like_btn.png';
 import Comments from '../assets/comments_btn.png';
 import Scrap from '../assets/scrap_btn.png';
 import '../styles/css/DetailPage.css';
+import useFetchUsers from '../hooks/useFetchUsers';
 
 
 const DetailPage = () => {
+    const {data}=useFetchUsers()
+
+ if(!data){
+    return;
+ }
+
     const settings = {
         dots: true,
         infinite: false,
@@ -45,13 +52,13 @@ const DetailPage = () => {
                         <button className='detail_like_btn'>
                             <img src={Like} alt="" />
                         </button>
-                        <span className='detail_like_cnt'>77</span>
+                        <span className='detail_like_cnt'>{data.likes.length}</span>
                     </li>
                     <li className='detail_comments'>
                         <button className='detail_comments_btn'>
                             <img src={Comments} alt="" />
                         </button>
-                        <span className='detail_comments_cnt'>77</span>
+                        <span className='detail_comments_cnt'>{data.comments.length}</span>
                     </li>
                     <li className='detail_scrap'>
                         <button className='detail_scrap_btn'>
