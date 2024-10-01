@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import User from '../types/User';
+import Post from '../types/Post';
 
-export default function useFetchUsers() {
-  const [data, setData] = useState<User | null>(null);
+export default function useFetchPost() {
+  const [data, setData] = useState<Post | null>(null);
 
-  const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/users/66fa3fe9b220810bf869cea5'
+  const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/posts/6652e8c536b89e0a8912d72f';
+
   useEffect(() => {
     const fetchData = async () => {
       try {

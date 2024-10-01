@@ -1,8 +1,10 @@
 import "../styles/scss/Mypage.scss"; 
 import profilePhoto from "../assets/chun_bong.png";
 import settingIcon from "../assets/Setting.svg";
+import useFetchUsers from "../hooks/useFetchUsers";
 
 const MyPage = () => {
+  const {data} = useFetchUsers();
   return (
     <div className="page-container">
       <div className="setting-section">
@@ -10,7 +12,7 @@ const MyPage = () => {
       </div>
       <div className="profile-section">
         <img className="profile-image" src={profilePhoto} alt="Profile" />
-        <h2 className="userid">chun_bong</h2>
+        <h2 className="userid">{data?.fullName}</h2>
         <div>
           <p className="introduce-text">
             안녕 나는 박춘봉이다 여기는 자기소개문구 입력란이다. 자기소개 문구
