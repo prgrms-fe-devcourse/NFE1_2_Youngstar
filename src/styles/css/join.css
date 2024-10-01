@@ -3,10 +3,6 @@ html, body {
   padding: 0;
 }
 
-input:focus{
-  outline: none;
-}
-
 .join-container {
   display: flex;
   justify-content: center;

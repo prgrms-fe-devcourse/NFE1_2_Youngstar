@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import User from '../types/User';
 
-export default function useFetchUsers() {
-  const [data, setData] = useState(null);
+export default function useFetchUser(id: string) {
+  const [data, setData] = useState<User | null>(null);
 
-  const url = 'https://kdt.frontend.5th.programmers.co.kr:5006/users/get-users';
+  const url = `https://kdt.frontend.5th.programmers.co.kr:5006/users/${id}`;
 
   useEffect(() => {
     const fetchData = async () => {
