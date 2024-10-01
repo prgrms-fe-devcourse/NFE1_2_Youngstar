@@ -1,3 +1,5 @@
+import Like from "./Like";
+import Message from "./Message";
 import Post from "./Post";
 
 type User = {
@@ -6,11 +8,12 @@ type User = {
     role: string,
     isOnline: boolean,
     posts: Post[],
-    likes: string[],
+    likes: Like[],
     comments: string[],
     followers: [],
     following: [],
     notifications: Notification[],
+    messages: Message[],
     _id: string,
     fullName: string,
     email: string,
