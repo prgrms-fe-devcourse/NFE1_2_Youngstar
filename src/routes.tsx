@@ -8,6 +8,7 @@ import JoinPage from './pages/JoinPage'
 import NotificationPage from './pages/NotificationPage';
 import PostFormPage from './pages/PostFormPage';
 import StarredPage from './pages/StarredPage';
+import HotPost from './pages/HotPost';
 
 const routes = [
   {
@@ -15,13 +16,15 @@ const routes = [
     children: [
       { path: '/', element: <MainPage /> },
       { path: '/mypage', element: <MyPage /> },
-      { path: '/joinPage', element:<JoinPage/>}
+      { path: '/joinPage', element:<JoinPage/>},
       { path: '/loginpage', element: <LoginPage /> },
       { path: '/notification', element: <NotificationPage /> },
       { path: '/chatting', element: <ChatPage /> },
       { path: '/saved', element: <StarredPage /> },
       { path: '/detailpage', element: <DetailPage /> },
       { path: '/postform', element: <PostFormPage /> },
+      { path: '/starredpage', element: <StarredPage /> },
+      { path: '/hotpost', element: <HotPost /> },
     ],
   },
 ];
