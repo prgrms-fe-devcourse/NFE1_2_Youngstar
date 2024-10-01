@@ -1,0 +1,19 @@
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-container {
+    @include center-flex;
+    margin-top: 30px;
+    width: 100%;
+    height: 50vh;
+
+    @media (max-width: 1440px) {
+    }
+
+    //모바일
+    @media (max-width: 600px) {
+    }
+}

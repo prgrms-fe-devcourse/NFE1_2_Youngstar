@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#1001 - 카카오 맵 api 활용을 위한 키 관리 .env파일 추가
+.env
