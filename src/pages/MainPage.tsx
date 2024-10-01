@@ -3,7 +3,7 @@ import Follower from "../components/UserLive";
 import Post from "../components/Post";
 import '../styles/css/MainPage.css';
 
-const MainPage = () => {
+const MainPage = () => { 
     return (
         <div className="page-container">
             <Follower />
