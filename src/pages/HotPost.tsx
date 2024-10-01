@@ -3,11 +3,12 @@ import axios from 'axios';
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import '../styles/css/Post.css'
+import '../styles/css/HotPost.css'
 import Like from '../assets/like_btn.png';
 import Comments from '../assets/comments_btn.png';
 import Scrap from '../assets/scrap_btn.png';
 import { Link } from 'react-router-dom';
+import PageHeader from '../components/PageHeader';
 
 const Post = () => {
     // 슬라이드 셋팅
@@ -21,7 +22,7 @@ const Post = () => {
 
     interface User {
         "coverImage": string, // 커버 이미지
-        "image": string, // 프로필 이미지
+        "image": String, // 프로필 이미지
         "role": String,
         "emailVerified": Boolean, // 사용되지 않음
         "banned": Boolean, // 사용되지 않음
@@ -106,14 +107,18 @@ const Post = () => {
         loadPostData();
     },[]);
 
+    const hotPosts = postList.slice().sort((a, b) => b.likes.length - a.likes.length).slice(0, 10);
+
     return (
-            <>
+        <div className='hot_post'>
+            <div className='hot_post_container'>
+                <PageHeader>인기 게시글</PageHeader>
                 {
-                    postList.map((post, idx) => (
+                    hotPosts.map((post, idx) => (
                         <div className='user_post' key={idx}>
                             <div className='user_info' >
                                 <p>
-                                    <img src={post.author.image || '/default.jpg'} alt="" className='user_profile'/>
+                                    <img src={post.author.coverImage || '/default.jpg'} alt="" className='user_profile'/>
                                     <span className='user_nickname'>{post.author.fullName}</span>
                                 </p>
                                 <button className='follow_btn'>following</button>
@@ -148,9 +153,8 @@ const Post = () => {
                         </div>
                     ))
                 }
-                
-            </>
-            
+            </div>
+        </div>
     );
 };
 
