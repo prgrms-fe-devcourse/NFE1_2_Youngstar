@@ -4,7 +4,7 @@ import axios from 'axios';
 export default function useFetchUsers() {
   const [data, setData] = useState(null);
 
-  const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/users/get-users';
+  const url = 'https://kdt.frontend.5th.programmers.co.kr:5006/users/get-users';
 
   useEffect(() => {
     const fetchData = async () => {

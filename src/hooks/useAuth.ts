@@ -1,17 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
+import { User, AuthResponse } from "../types/AuthTypes"; 
 
-const baseurl = 'https://kdt.frontend.5th.programmers.co.kr:5001';
-
-interface User {
-  email: string;
-  fullName: string;
-}
-
-interface AuthResponse {
-  user: User;
-  token: string;
-}
+const baseurl = 'https://kdt.frontend.5th.programmers.co.kr:5006';
 
 export const useAuth = () => {
   const [token, setToken] = useState<string | null>(null);
