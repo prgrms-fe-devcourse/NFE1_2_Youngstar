@@ -43,10 +43,8 @@ function MapPage() {
 
   return (
     <div className="map-container">
-      <div ref={mapRef} style={{ width: "500px", height: "500px" }}></div>
-      <div className="button-container">
-        <button>수정하기</button>
-      </div>
+      <div className="map" ref={mapRef} style={{ width: "500px", height: "500px" }}></div>
+      <button className="fix-button">수정하기</button>
     </div>
   );
 }
