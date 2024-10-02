@@ -21,8 +21,8 @@ const MyPage = () => {
   };
 
   const { data } = useFetchUser('65ae275324a85d18276ffd13');
-  // const posts = useFetchUserPost('64edba47aa26671246930aa3').data;
-  const posts = useFetchUserPost('65ae275324a85d18276ffd13').data;
+  const posts = useFetchUserPost('64edba47aa26671246930aa3').data;
+  // const posts = useFetchUserPost('65ae275324a85d18276ffd13').data;
 
   useEffect(() => {
     if (data?.followers) {
@@ -69,9 +69,9 @@ const MyPage = () => {
         </div>
       </div>
       <div className="tab-section">
-        <button className="tab" onClick={() => setCurrentTab('post')}>게시물</button>
-        <button className="tab" onClick={() => setCurrentTab('following')}>팔로잉</button>
-        <button className="tab" onClick={() => setCurrentTab('follower')}>팔로워</button>
+        <button className={`tab ${currentTab === 'post' ? 'current' : ''}`} onClick={() => setCurrentTab('post')}>게시물</button>
+        <button className={`tab ${currentTab === 'following' ? 'current' : ''}`} onClick={() => setCurrentTab('following')}>팔로잉</button>
+        <button className={`tab ${currentTab === 'follower' ? 'current' : ''}`} onClick={() => setCurrentTab('follower')}>팔로워</button>
       </div>
       <div className="tab-content">
         {
@@ -95,7 +95,7 @@ const MyPage = () => {
                     <div className="follower-info">
                       <div className="follower-img">
                         <img src={followedUser?.coverImage} alt="follower profile" />
-                        {/* <img src='src/assets/profile.png' alt="follower profile" /> */}
+                        {/* <img src='src/assets/postImage1.png' alt="follower profile" /> */}
                       </div>
                       <div className="follower-name">{followedUser?.fullName}</div>
                     </div>
@@ -106,7 +106,6 @@ const MyPage = () => {
             </div>
           )
         }
-
         {
           currentTab === 'follower' && (
             <div className="follower-tab">
@@ -128,7 +127,6 @@ const MyPage = () => {
           </div>
           )
         }
-        
       </div>
 
       {/* 0928 - 모달이 열릴 때만 렌더링 추가 */}

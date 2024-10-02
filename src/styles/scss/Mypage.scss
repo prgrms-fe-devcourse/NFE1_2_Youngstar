@@ -42,6 +42,10 @@ body {
     justify-content: space-around;
     border-top: 1px solid #e0e0e0;
     width: 100%;
+
+    .current{
+      background-color: #e0e0e0;
+    }
   }
   
   .tab {
@@ -103,7 +107,7 @@ body {
   }
 
   .follower-tab{
-    padding: 25px;
+    padding: 20px 25px;
   }
   
   .follower{
@@ -111,6 +115,8 @@ body {
     font-size: 18px;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 5px 0;
 
     .follower-info{
       display: flex;
@@ -132,6 +138,7 @@ body {
     }
 
     .follow-btn{
+      width: 78.26px;
       background-color: #000000;
       color: #FFFFFF;
       font-size: 16px;
