@@ -9,6 +9,7 @@ import NotificationPage from './pages/NotificationPage';
 import PostFormPage from './pages/PostFormPage';
 import StarredPage from './pages/StarredPage';
 import MapPage from './pages/MapPage';
+import HotPost from './pages/HotPost';
 
 const routes = [
   {
@@ -23,7 +24,6 @@ const routes = [
       { path: '/saved', element: <StarredPage /> },
       { path: '/detailpage', element: <DetailPage /> },
       { path: '/postform', element: <PostFormPage /> },
-      { path: '/map', element: <MapPage /> },
     ],
   },
 ];

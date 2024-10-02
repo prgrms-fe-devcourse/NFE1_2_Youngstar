@@ -22,6 +22,7 @@
     padding: 0;
     list-style: none;
     box-sizing: border-box;
+
     
     .container {
         margin: auto;
@@ -77,8 +78,6 @@
 
                 .user_post{
                     .user_info {
-                        margin-bottom: -8vw;
-
                         .user_profile {
                             width: 38px;
                             height: 38px;
@@ -108,8 +107,9 @@
 
             .content-box > button{
                 bottom: 63px;
-            .page-container{
-                padding-bottom: 63px;
+                .page-container{
+                    padding-bottom: 63px;
+                }
             }
         }
         // 반응형 모바일부터 태블릿
@@ -148,12 +148,6 @@
             }
             .post_area {
                 padding: 25px 20px 100px;
-
-                .user_post{
-                    .user_info {
-                        margin-bottom: -8vw;
-                    }
-                } 
             }
             .post_add {
                 right: 20px;
@@ -166,8 +160,9 @@
 
             .content-box > button{
                 bottom: 63px;
-            .page-container{
-                padding-bottom: 63px;
+                .page-container{
+                    padding-bottom: 63px;
+                }
             }
         }
         // 반응형 최대
@@ -195,12 +190,6 @@
             }
             .post_area {
                 padding: 25px 20px 220px;
-                
-                .user_post{
-                    .user_info {
-                        margin-bottom: -8vw;
-                    }
-                } 
             }
             .post_add {
                 right: 20px;
@@ -214,10 +203,10 @@
             .content-box > button{
                 bottom: 63px;
 
-            .page-container{
-                padding-bottom: 63px;
+                .page-container{
+                    padding-bottom: 63px;
+                }
             }
         }
     }
 }
-  

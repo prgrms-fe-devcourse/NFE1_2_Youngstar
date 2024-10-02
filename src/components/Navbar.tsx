@@ -30,8 +30,8 @@ const Navbar = () => {
                 <li className='go_home on' data-path="/">
                     <Link to={'/'}></Link>
                 </li>
-                <li className='go_hot' data-path="#">
-                    <Link to={'#'}></Link>
+                <li className='go_hot' data-path="/hotpost">
+                    <Link to={'/hotpost'}></Link>
                 </li>
                 <li className='go_chat' data-path="/chatting">
                     <Link to={'/chatting'}></Link>

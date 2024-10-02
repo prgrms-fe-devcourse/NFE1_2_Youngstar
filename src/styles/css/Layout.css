@@ -69,9 +69,6 @@ main {
   * .container .post_area {
     padding: 5px 10px 110px;
   }
-  * .container .post_area .user_post .user_info {
-    margin-bottom: -8vw;
-  }
   * .container .post_area .user_post .user_info .user_profile {
     width: 38px;
     height: 38px;
@@ -96,7 +93,8 @@ main {
   }
   * .container .content-box > button {
     bottom: 63px;
-  * .container .page-container {
+  }
+  * .container .content-box > button .page-container {
     padding-bottom: 63px;
   }
 }
@@ -134,9 +132,6 @@ main {
   * .container .post_area {
     padding: 25px 20px 100px;
   }
-  * .container .post_area .user_post .user_info {
-    margin-bottom: -8vw;
-  }
   * .container .post_add {
     right: 20px;
     bottom: 90px;
@@ -146,7 +141,8 @@ main {
   }
   * .container .content-box > button {
     bottom: 63px;
-  * .container .page-container {
+  }
+  * .container .content-box > button .page-container {
     padding-bottom: 63px;
   }
 }
@@ -174,9 +170,6 @@ main {
   * .container .post_area {
     padding: 25px 20px 220px;
   }
-  * .container .post_area .user_post .user_info {
-    margin-bottom: -8vw;
-  }
   * .container .post_add {
     right: 20px;
     bottom: 110px;
@@ -186,7 +179,8 @@ main {
   }
   * .container .content-box > button {
     bottom: 63px;
-  * .container .page-container {
+  }
+  * .container .content-box > button .page-container {
     padding-bottom: 63px;
   }
 }
