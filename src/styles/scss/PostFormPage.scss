@@ -6,10 +6,15 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         padding-bottom: 15px;
+        text-align: center;
 
         img{
             width: 30px;
             margin: 0 auto;
+        }
+
+        #chooseFile {
+            display: none;
         }
     }
 
@@ -22,8 +27,16 @@
         resize: none;
     }
 
-    textarea:focus{
-        outline: none;;
+    .titleInput {
+        width: 100%;
+        padding: 15px 20px;
+        border: none;
+        border-top: 1px solid #d9d9d9;
+    }
+
+    textarea:focus,
+    .titleInput:focus {
+        outline: none;
     }
 
     button{
@@ -32,6 +45,8 @@
         height: 40px;
         position: fixed;
         bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
         border: none;
         background-color: #d1d1d1;
         border-radius: 5px 5px 0 0;
