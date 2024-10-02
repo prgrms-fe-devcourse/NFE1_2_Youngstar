@@ -1,6 +1,7 @@
 import "../styles/scss/Mypage.scss"; 
 import profileImage from "../assets/chun_bong.png";
 import settingIcon from "../assets/Setting.svg";
+import useFetchUsers from "../hooks/useFetchUsers";
 
 import { useState, useEffect } from "react";
 import SetModal from "./SettingModal";
@@ -11,6 +12,7 @@ import Follow from "../types/Follow";
 import User from "../types/User";
 
 const MyPage = () => {
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState('post');
   const [followingData, setFollowingData] = useState<(User | null)[]>([])

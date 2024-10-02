@@ -1,17 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
+import { User, AuthResponse } from "../types/AuthTypes"; 
 
-const baseurl = 'https://kdt.frontend.5th.programmers.co.kr:5001';
-
-interface User {
-  email: string;
-  fullName: string;
-}
-
-interface AuthResponse {
-  user: User;
-  token: string;
-}
+const baseurl = 'https://kdt.frontend.5th.programmers.co.kr:5006';
 
 export const useAuth = () => {
   const [token, setToken] = useState<string | null>(null);
@@ -21,6 +12,7 @@ export const useAuth = () => {
     baseURL: baseurl,
   });
 
+  // 로그인
   const login = async (email: string, password: string) => {
     try {
       const response = await api.post<AuthResponse>("/login", {
@@ -35,6 +27,7 @@ export const useAuth = () => {
     }
   };
 
+  // 회원가입
   const signup = async (email: string, fullName: string, password: string) => {
     try {
       const response = await api.post<AuthResponse>("/signup", {

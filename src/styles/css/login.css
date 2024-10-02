@@ -9,7 +9,7 @@ html, body {
   align-items: center;
   height: 100vh;
   width: 100%;
-  background-color: #FFE68B;
+  background-color: #ffe68b;
   position: relative;
 }
 
@@ -21,12 +21,13 @@ html, body {
   width: 20%;
   text-align: center;
 }
-
 .login-form p {
   margin-top: 1rem;
 }
 
-h1, h2, p {
+h1,
+h2,
+p {
   text-align: left;
 }
 

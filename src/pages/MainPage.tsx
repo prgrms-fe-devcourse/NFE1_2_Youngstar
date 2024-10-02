@@ -1,16 +1,16 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Follower from "../components/UserLive";
 import Post from "../components/Post";
 import '../styles/css/MainPage.css';
+import useFetchUsers from "../hooks/useFetchUsers";
 
-const MainPage = () => {
+const MainPage = () => { 
     return (
         <div className="page-container">
             <Follower />
             <div className='post_area'>
-                <Post />
-                <Post />
-                <Post />
                 <Post />
             </div>
             <button className='post_add'>
