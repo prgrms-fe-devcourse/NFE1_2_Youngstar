@@ -1,19 +1,27 @@
-@mixin center-flex {
+@mixin center {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
 .map-container {
-    @include center-flex;
-    margin-top: 30px;
+    @include center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 90px;
     width: 100%;
     height: 50vh;
 
-    @media (max-width: 1440px) {
+    .button-container {
+        @include center;
+        justify-content: center;
+        margin-top: 75px; 
     }
 
-    //모바일
+    @media (max-width: 1440px) {
+        //이어서 수정할 거 1
+    }
+
     @media (max-width: 600px) {
+        // 이어서 수정할 거 2
     }
 }
