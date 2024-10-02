@@ -3,7 +3,9 @@ import axios from 'axios';
 import User from '../types/User';
 
 export default function useFetchUsers() {
+
   const [data, setData] = useState<User | null>(null);
+
 
   const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/users/66fa3fe9b220810bf869cea5'
   useEffect(() => {

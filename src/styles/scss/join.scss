@@ -1,102 +1,109 @@
 html, body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .join-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    background-color: #FFE68B;
-    position: relative;
-    padding: 10px;
-  }
-  
-  .join-form {
-    background-color: #fff;
-    padding: 3rem 5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #FFE68B;
+  padding: 20px;
+  position: relative;
+
+  .form {
+    background-color: white;
+    padding: 2rem;
     border-radius: 10px;
-    border: 1px solid;
-    width: 35%;
+    height: 60%;
+    width: 20%;
     text-align: center;
-  }
-  
-  h1, p {
-    text-align: left;
-  }
-  
-  .join-form-group {
-    margin-bottom: 1rem;
-    text-align: left;
-  }
-  
-  .join-form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  
-  .join-form-group input {
-    width: 100%;
-    height: 50px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid;
-    border-radius: 5px;
-    
-  }
-  
-  .login-btn {
-    width: 105%;
-    height: 70px;
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    margin-top: 1rem;
-    cursor: pointer;
-  }
-  
-  .singup-link {
-    text-align: center;
-    margin-top: 3rem;
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      input {
+        width: 100%;
+        height: 50px;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #000;
+        border-radius: 5px;
+      }
+    }
+
+    .login-btn {
+      width: 100%;
+      height: 50px;
+      background-color: black;
+      color: white;
+      border-radius: 5px;
+      text-align: center;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 14px;
+
+      a {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
   }
 
-.logo-container{
-    width: 40vw;
+  .logo-container {
+    width: 40%; /* 나머지 40%는 로고 */
     padding: 20px;
-    img{
+    text-align: center; /* 로고 가운데 정렬 */
+
+    img {
       width: 100%;
-    }   
+    }
+  }
 }
 
 .password-container {
-    display: flex;
-    border: 1px solid black;
-    align-items: center;
-    width: 100%;
-    border-radius: 5px;
-    padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: 1px solid #000;
 
-    button{
-      width: fit-content;
-      height: fit-content;
-      margin: 0;
-      border: none;
-    }
-
-    input{
-      border: none;
-      padding: 0;
-      width: 100%;
-    }
-  }
-  
-  .join-password-toggle {
+  button {
+    width: fit-content;
+    height: fit-content;
+    margin: 0;
+    border: none;
     background-color: transparent;
+    cursor: pointer;
   }
 
+  input {
+    border: none;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.join-password-toggle {
+  background-color: transparent;
+  cursor: pointer;
+}
