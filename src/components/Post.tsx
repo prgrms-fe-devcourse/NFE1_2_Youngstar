@@ -96,7 +96,7 @@ const Post = () => {
     useEffect(() => {
         const loadPostData = async() => {
             try {
-                const response = await axios.get('https://kdt.frontend.5th.programmers.co.kr:5006/posts/channel/65a7badc09191705e1d459bf');
+                const response = await axios.get('https://kdt.frontend.5th.programmers.co.kr:5006/posts');
                 setPostList(response.data);
                 console.log(response.data);
             } catch (error) {
