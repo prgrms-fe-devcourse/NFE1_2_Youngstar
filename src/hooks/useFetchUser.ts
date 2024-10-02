@@ -2,12 +2,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import User from '../types/User';
 
-export default function useFetchUsers() {
-
-//   const url = 'https://kdt.frontend.5th.programmers.co.kr:5006/users/get-users';
+export default function useFetchUser(id: string) {
   const [data, setData] = useState<User | null>(null);
 
-  const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/users/66fa3fe9b220810bf869cea5'
+  const url = `https://kdt.frontend.5th.programmers.co.kr:5006/users/${id}`;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -17,6 +16,7 @@ export default function useFetchUsers() {
         console.error('요청 실패:', err);
       }
     };
+
     fetchData();
   }, []);
 
