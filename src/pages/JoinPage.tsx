@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/scss/Join.scss";
 import PasswordToggle from "../components/PasswordToggle";
 import FormLayout from "../components/FormLayout";
@@ -8,6 +9,7 @@ import { AuthTypes } from "../types/AuthTypes";
 
 const JoinPage: React.FC = () => {
   const { signup } = useAuth();
+  const navigate = useNavigate();
 
   const [formState, setFormState] = useState<AuthTypes>({
     email: "",
@@ -36,8 +38,14 @@ const JoinPage: React.FC = () => {
       return;
     }
 
-    await signup(formState.email, formState.id, formState.password);
-    console.log("제출 :", formState);
+    //1002 추가 - 회원가입 성공 여부에 따라서 동작
+    try { 
+      await signup(formState.email, formState.id, formState.password);
+      console.log("제출 :", formState);
+      navigate("/"); // 회원가입 성공하면 메인으로 이동
+    } catch (error) {
+      console.error("회원가입 실패", error);
+    }
   };
 
   return (

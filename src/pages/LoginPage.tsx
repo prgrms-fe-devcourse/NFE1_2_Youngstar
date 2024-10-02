@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/scss/Login.scss";
 import { useAuth } from "../hooks/useAuth";
 import Input from "../components/Input";
@@ -6,11 +7,13 @@ import PasswordToggle from "../components/PasswordToggle";
 import FormLayout from "../components/FormLayout";
 
 const LoginPage: React.FC = () => {
-  const { login } = useAuth();
+  const { logout, login } = useAuth();
   const [formState, setFormState] = useState({
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate(); // 1002 추가
 
   // 업데이트 값
   const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +27,13 @@ const LoginPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("폼 제출 완료:", formState);
-    await login(formState.email, formState.password);
+    try {
+      await login(formState.email, formState.password);
+      navigate("/"); // 로그인 성공 시 메인 페이지로 이동
+    } catch (error) {
+      console.log("로그인 실패");
+      alert("아이디/비밀번호가 틀렸습니다");
+    }
   };
 
   return (
@@ -54,10 +63,12 @@ const LoginPage: React.FC = () => {
         <button type="submit" className="login-btn">
           로그인
         </button>
-
+        {/* <button type="button" className="login-btn" onClick={logout}>
+          로그아웃
+        </button> */}
         <div className="signup-link">
           <span>
-            계정이 없으신가요? <a href="">가입하기</a>
+            계정이 없으신가요? <Link to="/joinPage">가입하기</Link>
           </span>
         </div>
       </FormLayout>

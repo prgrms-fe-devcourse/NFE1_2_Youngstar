@@ -24,6 +24,8 @@ const routes = [
       { path: '/saved', element: <StarredPage /> },
       { path: '/detailpage', element: <DetailPage /> },
       { path: '/postform', element: <PostFormPage /> },
+      { path: '/map', element: <MapPage />},
+      { path: '/hotpost', element: <HotPost /> }
     ],
   },
 ];
