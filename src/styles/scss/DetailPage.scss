@@ -3,6 +3,7 @@
 .detail_area {
     overflow: hidden;
     height: 100vh;
+    width: 100%;
     max-width: 600px;
     margin: 0 auto;
 
@@ -87,8 +88,9 @@
     
         .slick-list {
             width: 100%;
-            height: 450px !important;
-            object-fit: cover;
+            // height: 450px !important;
+            height: auto;
+
             display: flex;
             align-items: center;
             margin-bottom: 30px;
@@ -106,6 +108,11 @@
         }
         .slick-dots {
             bottom: -20px;
+        }
+
+        .detail_user_picture{
+            width: 100%;
+            object-fit: cover;
         }
     
         .detail_user_text {

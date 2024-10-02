@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Follower from "../components/UserLive";
 import Post from "../components/Post";
 import '../styles/css/MainPage.css';
+import useFetchUsers from "../hooks/useFetchUsers";
 
 const MainPage = () => { 
     return (

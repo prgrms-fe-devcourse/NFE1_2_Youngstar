@@ -7,7 +7,6 @@ type Comment = {
     post: string,
     createdAt: string,
     updatedAt: string
-
 }
 
 export default Comment;
