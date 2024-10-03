@@ -22,13 +22,13 @@ const Post = () => {
     interface User {
         "coverImage": string, // 커버 이미지
         "image": string, // 프로필 이미지
-        "role": String,
+        "role": string,
         "emailVerified": Boolean, // 사용되지 않음
         "banned": Boolean, // 사용되지 않음
         "isOnline": Boolean,
         "posts": Post[],
         "likes": Like[],
-        "comments": String[],
+        "comments": string[],
         "followers": [],
         "following": [
           {
@@ -42,52 +42,52 @@ const Post = () => {
         ],
         "notifications": Notification[],
         "messages": Message[],
-        "_id": String,
-        "fullName": String,
-        "email": String,
-        "createdAt": String,
-        "updatedAt": String
+        "_id": string,
+        "fullName": string,
+        "email": string,
+        "createdAt": string,
+        "updatedAt": string
     }
 
     interface Like {
-        "_id": String,
+        "_id": string,
         "user": String, // 사용자 id
         "post": String, // 포스트 id
-        "createdAt": String,
-        "updatedAt": String
+        "createdAt": string,
+        "updatedAt": string
     }
 
     interface Message {
-        "_id": String,
-        "message": String,
+        "_id": string,
+        "message": string,
         "sender": User,
         "receiver": User,
         "seen": Boolean,
-        "createdAt": String,
-        "updatedAt": String
+        "createdAt": string,
+        "updatedAt": string
     }
 
     interface Channel {
         "authRequired": Boolean, // 사용되지 않음
-        "posts": String[],
-        "_id": String,
-        "name": String,
-        "description": String,
-        "createdAt": String,
-        "updatedAt": String
+        "posts": string[],
+        "_id": string,
+        "name": string,
+        "description": string,
+        "createdAt": string,
+        "updatedAt": string
     }
 
     interface Post {
         "likes": Like[],
         "comments": Comment[],
-        "_id": String,
+        "_id": string,
         "image"?: string,
         "imagePublicId"?: string,
-        "title": String,
+        "title": string,
         "channel": Channel,
         "author": User,
-        "createdAt": String,
-        "updatedAt": String,
+        "createdAt": string,
+        "updatedAt": string,
         "__v": string
     }
 
@@ -105,6 +105,52 @@ const Post = () => {
         }
         loadPostData();
     },[]);
+
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2ZmNiODU4YzczNjllMzdiZTMxNTA2NiIsImVtYWlsIjoiYXVkc2tkQGdtYWlsLmNvbSJ9LCJpYXQiOjE3Mjc4MzgyOTZ9.LOfkLAehxjd5MveY0vSEbW8qLZnCDj4axtsszkaP1is"; // 나중에 실제 JWT 토큰으로 변경해야 함
+
+    // 좋아요 기능 추가
+    const handleLike = async (postId: string) => {
+        try {
+            const response = await axios.post(
+                'https://kdt.frontend.5th.programmers.co.kr:5006/likes/create',
+                { postId },
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+            
+            if (response.status === 200) {
+                setPostList((prevPosts) => 
+                    prevPosts.map(post => 
+                        post._id === postId ? { ...post, likes: [...post.likes, response.data] } : post
+                    )
+                );
+            }
+        } catch (error) {
+            console.error('좋아요 실패:', error);
+        }
+    };
+
+    const handleUnlike = async (likeId: string) => {
+        try {
+            const response = await axios.delete(
+                'https://kdt.frontend.5th.programmers.co.kr:5006/likes/delete',
+                {
+                    headers: { Authorization: `Bearer ${token}` },
+                    data: { id: likeId }
+                }
+            );
+            // 좋아요 취소 성공 시 포스트 목록 업데이트
+            if (response.status === 200) {
+                setPostList((prevPosts) => 
+                    prevPosts.map(post => {
+                        const updatedLikes = post.likes.filter(like => like._id !== likeId);
+                        return { ...post, likes: updatedLikes };
+                    })
+                );
+            }
+        } catch (error) {
+            console.error('좋아요 취소 실패:', error);
+        }
+    };
 
     return (
             <>
@@ -126,7 +172,20 @@ const Post = () => {
                             </p>
                             <ul className='buttons'>
                                 <li className='like'>
-                                    <button className='like_btn'>
+                                    <button 
+                                    className='like_btn'
+                                    onClick={() => {
+                                        const liked = post.likes.some(like => like.user === like.user);
+                                        if (liked) {
+                                            const likeId = post.likes.find(like => like.user === like.user)?._id;
+                                            if (likeId) {
+                                                handleUnlike(likeId);
+                                            }
+                                        } else {
+                                            handleLike(post._id);
+                                        }
+                                    }}
+                                    >
                                         <img src={Like} alt="" />
                                     </button>
                                     <span className='like_cnt'>{post.likes.length}</span>
