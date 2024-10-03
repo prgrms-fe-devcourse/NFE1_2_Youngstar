@@ -2,6 +2,7 @@ import "../styles/scss/Mypage.scss";
 import profileImage from "../assets/chun_bong.png";
 import settingIcon from "../assets/Setting.svg";
 import useFetchUsers from "../hooks/useFetchUsers";
+import { useNavigate } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import SetModal from "./SettingModal";
@@ -10,8 +11,15 @@ import Post from "../types/Post";
 import useFetchUserPost from "../hooks/useFetchUserPost";
 import Follow from "../types/Follow";
 import User from "../types/User";
+import { useAuth } from "../hooks/useAuth";
 
 const MyPage = () => {
+  const navigate = useNavigate();
+  const { logout } = useAuth();
+  const handleLogout = () => {
+    logout(); 
+    navigate("/loginpage"); // 로그아웃 후 로그인 페이지로 이동
+  };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState('post');
@@ -22,8 +30,8 @@ const MyPage = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const { data } = useFetchUser('65ae275324a85d18276ffd13');
-  const posts = useFetchUserPost('64edba47aa26671246930aa3').data;
+  const { data } = useFetchUser('65a48f8e94116f19ad130ee0');
+  const posts = useFetchUserPost('65a48f8e94116f19ad130ee0').data;
   // const posts = useFetchUserPost('65ae275324a85d18276ffd13').data;
 
   useEffect(() => {
@@ -31,7 +39,7 @@ const MyPage = () => {
       const fetchFollowersData = async () => {
         const followersInfo = await Promise.all(
           data.followers.map(async (follow: Follow) => {
-            const response = await fetch(`https://kdt.frontend.5th.programmers.co.kr:5006/users/${follow.follower}`);
+            const response = await fetch(`https://kdt.frontend.5th.programmers.co.kr:5010/users/${follow.follower}`);
             const followedUser = await response.json();
             return followedUser;
           })
@@ -44,7 +52,7 @@ const MyPage = () => {
       const fetchFollowingData = async () => {
         const followingInfo = await Promise.all(
           data.following.map(async (follow: Follow) => {
-            const response = await fetch(`https://kdt.frontend.5th.programmers.co.kr:5006/users/${follow.user}`);
+            const response = await fetch(`https://kdt.frontend.5th.programmers.co.kr:5010/users/${follow.user}`);
             const followedUser = await response.json();
             return followedUser;
           })
@@ -57,6 +65,9 @@ const MyPage = () => {
 
   return (
     <div className="page-container">
+      <div className="logout">
+        <button onClick={handleLogout}>로그아웃</button>
+      </div>
       <div className="setting-section">
         <img className="setting" src={settingIcon} alt="Setting" onClick={toggleModal}/>
       </div>
