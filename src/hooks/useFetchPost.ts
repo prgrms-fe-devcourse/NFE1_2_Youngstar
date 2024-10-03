@@ -5,7 +5,7 @@ import Post from '../types/Post';
 export default function useFetchPost() {
   const [data, setData] = useState<Post | null>(null);
 
-  const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/posts/6652e8c536b89e0a8912d72f';
+  const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/posts/66b4cc15b220810bf8689085';
 
   useEffect(() => {
     const fetchData = async () => {

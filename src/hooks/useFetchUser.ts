@@ -5,7 +5,7 @@ import User from '../types/User';
 export default function useFetchUser(id: string) {
   const [data, setData] = useState<User | null>(null);
 
-  const url = `https://kdt.frontend.5th.programmers.co.kr:5006/users/${id}`;
+  const url = `https://kdt.frontend.5th.programmers.co.kr:5010/users/${id}`;
 
   useEffect(() => {
     const fetchData = async () => {

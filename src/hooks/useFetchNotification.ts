@@ -6,7 +6,7 @@ import User from '../types/User';
 export default function useFetchNotification() {
   const [data, setData] = useState<User | null>(null);
 
-  const url = 'https://kdt.frontend.5th.programmers.co.kr:5006/users/65fd7dd0ccdd3f59fe641487';
+  const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/users/66026bc836b89e0a89127384';
 
   useEffect(() => {
     const fetchData = async () => {
