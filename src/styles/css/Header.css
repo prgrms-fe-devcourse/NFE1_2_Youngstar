@@ -26,6 +26,11 @@
   color: #8e8e8e;
   line-height: 30px;
 }
+.header .search_area .search_results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
 .header .search_area .search_btn {
   width: 15px;
   height: 15px;
