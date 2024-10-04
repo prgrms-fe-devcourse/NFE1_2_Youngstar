@@ -111,6 +111,14 @@
                     padding-bottom: 63px;
                 }
             }
+
+            .rightlogo-container{
+                display: none;
+            }
+
+            .form{
+                width: 80% !important;
+            }
         }
         // 반응형 모바일부터 태블릿
         @include mobile {
@@ -164,6 +172,13 @@
                     padding-bottom: 63px;
                 }
             }
+            .rightlogo-container{
+                display: none;
+            }
+
+            .form{
+                width: 80% !important;
+            }
         }
         // 반응형 최대
         @include tabletToMobile {
@@ -207,6 +222,15 @@
                     padding-bottom: 63px;
                 }
             }
+
+            .rightlogo-container{
+                display: none;
+            }
+
+            .form{
+                width: 80% !important;
+            }
+
         }
     }
 }
