@@ -125,6 +125,7 @@ body {
 
     .follower-img{
       width: 55px;
+      height: 55px;
     }
 
     .follower-name{
@@ -133,8 +134,10 @@ body {
 
     img{
       width: 100%;
+      height: 100%;
       padding: 5px;
       border-radius: 50%;
+      object-fit: cover;
     }
 
     .follow-btn{

@@ -96,7 +96,7 @@ const Post = () => {
     useEffect(() => {
         const loadPostData = async() => {
             try {
-                const response = await axios.get('https://kdt.frontend.5th.programmers.co.kr:5006/posts');
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts/channel/65a637c681af0c2145980120`);
                 setPostList(response.data);
                 console.log(response.data);
             } catch (error) {
