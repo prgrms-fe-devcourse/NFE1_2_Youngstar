@@ -4,10 +4,9 @@ import User from '../types/User';
 
 export default function useFetchUsers() {
 
-//   const url = 'https://kdt.frontend.5th.programmers.co.kr:5006/users/get-users';
   const [data, setData] = useState<User | null>(null);
 
-  const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/users/65a4a01394116f19ad1334d5'
+  const url = `${import.meta.env.VITE_API_URL}/users/65a4a01394116f19ad1334d5`
   useEffect(() => {
     const fetchData = async () => {
       try {

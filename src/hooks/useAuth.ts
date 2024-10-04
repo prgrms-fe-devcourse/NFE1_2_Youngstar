@@ -3,8 +3,6 @@ import axios from "axios";
 import { User, AuthResponse } from "../types/AuthTypes";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
-const baseurl = "https://kdt.frontend.5th.programmers.co.kr:5010";
-
 export const useAuth = () => {
   const [token, setToken] = useState<string | null>(
     localStorage.getItem("token")
@@ -17,7 +15,7 @@ export const useAuth = () => {
   // 로그인
   const login = async (email: string, password: string) => {
     try {
-      const response = await axios.post<AuthResponse>(`${baseurl}/login`, {
+      const response = await axios.post<AuthResponse>(`${import.meta.env.VITE_API_URL}/login`, {
         email,
         password,
       });
@@ -41,7 +39,7 @@ export const useAuth = () => {
   // 회원가입
   const signup = async (email: string, fullName: string, password: string) => {
     try {
-      const response = await axios.post<AuthResponse>(`${baseurl}/signup`, {
+      const response = await axios.post<AuthResponse>(`${import.meta.env.VITE_API_URL}/signup`, {
         email,
         fullName,
         password,
@@ -74,7 +72,7 @@ export const useAuth = () => {
         throw new Error("로그인이 필요합니다.");
       }
 
-      const response = await axios.get<User>(`${baseurl}/auth-user`, {
+      const response = await axios.get<User>(`${import.meta.env.VITE_API_URL}/auth-user`, {
         headers: {
           Authorization: `Bearer ${token}`, 
         },
