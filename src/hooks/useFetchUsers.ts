@@ -10,7 +10,7 @@ export default function useFetchUsers() {
 
   // const url = "https://kdt.frontend.5th.programmers.co.kr:5001/posts/65a7e3d3ddb5911c0c0f9dfb"
   // const url = "https://kdt.frontend.5th.programmers.co.kr:5001/users/65af52230f190d3bd8fe81df"
-  const url ="https://kdt.frontend.5th.programmers.co.kr:5006/search/all/근육몬최익"
+  const url ="https://kdt.frontend.5th.programmers.co.kr:5010/users/get-users"
 
   useEffect(() => {
     const fetchData = async () => {
