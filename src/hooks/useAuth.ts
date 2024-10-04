@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { User, AuthResponse } from "../types/AuthTypes";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const baseurl = "https://kdt.frontend.5th.programmers.co.kr:5010";
 
@@ -9,6 +10,9 @@ export const useAuth = () => {
     localStorage.getItem("token")
   );
   const [user, setUser] = useState<User | null>(null);
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const redirectUrl = state || '/';
 
   // 로그인
   const login = async (email: string, password: string) => {
@@ -26,6 +30,9 @@ export const useAuth = () => {
       localStorage.setItem("user", JSON.stringify(response.data.user));
 
       console.log("로그인 성공", response.data);
+
+      navigate(redirectUrl);
+      
     } catch (e) {
       console.error("로그인 실패", e);
     }

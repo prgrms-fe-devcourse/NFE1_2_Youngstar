@@ -1,12 +1,30 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import Notice from '../components/Notice';
 import PageHeader from '../components/PageHeader';
 import useFetchNotification from '../hooks/useFetchNotification';
 import '../styles/css/NotificationPage.css'
 import Notification from '../types/Notification';
+import { useEffect } from 'react';
 
 const NotificationPage = () => {
-    const { data } = useFetchNotification();
-    console.log(data?.notifications);
+    const navigate = useNavigate();
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          alert("로그인이 필요합니다.");
+          navigate("/loginPage", { state: pathname });
+        }
+    }, [navigate, pathname]);
+
+    const { notifications } = useFetchNotification();
+
+    // const userData = localStorage.getItem('user');
+    // const userId = userData ? JSON.parse(userData)._id : null;
+    // const { data } = useFetchNotification(userId);
+    // console.log(data)
+    // console.log(data?.notifications);
 
     const elapsedTime = (date: number): string => {
         const start = new Date(date);
@@ -32,7 +50,7 @@ const NotificationPage = () => {
             <PageHeader>알림</PageHeader>
             <div className="content-box">
                 {
-                    data?.notifications.map((notice: Notification) => {
+                    notifications?.map((notice: Notification) => {
                         return(
                             <div className={`notification-box ${notice.seen}`}>
                                 <div className='notice-content'>

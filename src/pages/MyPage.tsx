@@ -1,10 +1,9 @@
+import { useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import "../styles/scss/Mypage.scss"; 
 import profileImage from "../assets/chun_bong.png";
 import settingIcon from "../assets/Setting.svg";
-import useFetchUsers from "../hooks/useFetchUsers";
-import { useNavigate } from "react-router-dom";
-
-import { useState, useEffect } from "react";
 import SetModal from "./SettingModal";
 import useFetchUser from "../hooks/useFetchUser";
 import Post from "../types/Post";
@@ -16,52 +15,64 @@ import { useAuth } from "../hooks/useAuth";
 const MyPage = () => {
   const navigate = useNavigate();
   const { logout } = useAuth();
-  const handleLogout = () => {
-    logout(); 
-    navigate("/loginpage"); // 로그아웃 후 로그인 페이지로 이동
-  };
+  const { pathname } = useLocation();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState('post');
   const [followingData, setFollowingData] = useState<(User | null)[]>([])
   const [followersData, setFollowersData] = useState<(User | null)[]>([])
 
+  const handleLogout = () => {
+    logout(); 
+    navigate("/loginpage"); // 로그아웃 후 로그인 페이지로 이동
+  };
+
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const { data } = useFetchUser('65a48f8e94116f19ad130ee0');
-  const posts = useFetchUserPost('65a48f8e94116f19ad130ee0').data;
-  // const posts = useFetchUserPost('65ae275324a85d18276ffd13').data;
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert("로그인이 필요합니다.");
+      navigate("/loginPage", { state: pathname });
+    }
+  }, [navigate, pathname]);
+
+  const userData = localStorage.getItem('user');
+  const userId = userData ? JSON.parse(userData)._id : null;
+
+  const { data } = useFetchUser(userId);
+  const posts = useFetchUserPost(userId).data;
 
   useEffect(() => {
-    if (data?.followers) {
-      const fetchFollowersData = async () => {
+    const fetchFollowersData = async () => {
+      if (data?.followers) {
         const followersInfo = await Promise.all(
           data.followers.map(async (follow: Follow) => {
-            const response = await fetch(`https://kdt.frontend.5th.programmers.co.kr:5010/users/${follow.follower}`);
-            const followedUser = await response.json();
-            return followedUser;
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${follow.follower}`);
+            return response.json();
           })
         );
         setFollowersData(followersInfo);
-      };
-      fetchFollowersData();
-    }
-    if (data?.following) {
-      const fetchFollowingData = async () => {
+      }
+    };
+
+    const fetchFollowingData = async () => {
+      if (data?.following) {
         const followingInfo = await Promise.all(
           data.following.map(async (follow: Follow) => {
-            const response = await fetch(`https://kdt.frontend.5th.programmers.co.kr:5010/users/${follow.user}`);
-            const followedUser = await response.json();
-            return followedUser;
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/users/${follow.user}`);
+            return response.json();
           })
         );
         setFollowingData(followingInfo);
-      };
-      fetchFollowingData();
-    }
-  }, [data?.following, data?.followers]);
+      }
+    };
+
+    fetchFollowersData();
+    fetchFollowingData();
+  }, [data?.followers, data?.following]);
 
   return (
     <div className="page-container">
