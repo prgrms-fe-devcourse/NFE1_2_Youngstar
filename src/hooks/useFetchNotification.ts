@@ -1,25 +1,32 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Notification from '../types/Notification';
-import User from '../types/User';
 
 export default function useFetchNotification() {
-  const [data, setData] = useState<User | null>(null);
+  const [notifications, setNotifications] = useState<Notification[] | null>(null);
 
-  const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/users/66026bc836b89e0a89127384';
+  const url = `${import.meta.env.VITE_API_URL}/notifications`;
+  console.log(url);
+  const token = localStorage.getItem('token'); 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(url);
-        setData(response.data);
+        const response = await axios.get(url, {
+          headers: {
+            Authorization: `Bearer ${token}`, 
+          },
+        });
+        setNotifications(response.data);
       } catch (err) {
-        console.error('요청 실패:', err);
+        console.error('알림 목록 불러오기 실패:', err);
       }
     };
 
-    fetchData();
-  }, []);
+    if (token) { 
+      fetchData();
+    }
+  }, [url, token]);
 
-  return { data };
+  return { notifications };
 }
