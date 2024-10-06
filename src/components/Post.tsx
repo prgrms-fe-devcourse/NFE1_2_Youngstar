@@ -4,7 +4,8 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/css/Post.css'
-import Like from '../assets/like_btn.png';
+import Heart from '../assets/like_btn.png';
+import HeartOn from '../assets/like_btn_on.svg';
 import Comments from '../assets/comments_btn.png';
 import Scrap from '../assets/scrap_btn.png';
 import { Link } from 'react-router-dom';
@@ -96,7 +97,7 @@ const Post = () => {
     useEffect(() => {
         const loadPostData = async() => {
             try {
-                const response = await axios.get('https://kdt.frontend.5th.programmers.co.kr:5006/posts/channel/65a7badc09191705e1d459bf');
+                const response = await axios.get('https://kdt.frontend.5th.programmers.co.kr:5007/posts');
                 setPostList(response.data);
                 console.log(response.data);
             } catch (error) {
@@ -106,13 +107,15 @@ const Post = () => {
         loadPostData();
     },[]);
 
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2ZmNiODU4YzczNjllMzdiZTMxNTA2NiIsImVtYWlsIjoiYXVkc2tkQGdtYWlsLmNvbSJ9LCJpYXQiOjE3Mjc4MzgyOTZ9.LOfkLAehxjd5MveY0vSEbW8qLZnCDj4axtsszkaP1is"; // 나중에 실제 JWT 토큰으로 변경해야 함
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2ZmYzMzJlZTVhNTllMGNjNTE3MDNmMyIsImVtYWlsIjoidGVzdDc4OUBnbWFpbC5jb20ifSwiaWF0IjoxNzI4MDAwODE1fQ.-L8fy4j7V7m3j6n-8ARbVvISN6Yr4Z78B5QCohGtse4"; // 나중에 실제 JWT 토큰으로 변경해야 함
 
     // 좋아요 기능 추가
+    const [like, setLike] = useState(false);
+    const [likes, setLikes] = useState({});
     const handleLike = async (postId: string) => {
         try {
             const response = await axios.post(
-                'https://kdt.frontend.5th.programmers.co.kr:5006/likes/create',
+                'https://kdt.frontend.5th.programmers.co.kr:5007/likes/create',
                 { postId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -130,12 +133,13 @@ const Post = () => {
     };
 
     const handleUnlike = async (likeId: string) => {
+
         try {
             const response = await axios.delete(
-                'https://kdt.frontend.5th.programmers.co.kr:5006/likes/delete',
+                'https://kdt.frontend.5th.programmers.co.kr:5007/likes/delete',
                 {
                     headers: { Authorization: `Bearer ${token}` },
-                    data: { id: likeId }
+                    data: {id: likeId}
                 }
             );
             // 좋아요 취소 성공 시 포스트 목록 업데이트
@@ -151,6 +155,7 @@ const Post = () => {
             console.error('좋아요 취소 실패:', error);
         }
     };
+
 
     return (
             <>
@@ -175,18 +180,25 @@ const Post = () => {
                                     <button 
                                     className='like_btn'
                                     onClick={() => {
-                                        const liked = post.likes.some(like => like.user === like.user);
+                                        const postLikes = { ...likes };
+                                        const liked = postLikes[post._id];
                                         if (liked) {
-                                            const likeId = post.likes.find(like => like.user === like.user)?._id;
-                                            if (likeId) {
-                                                handleUnlike(likeId);
+                                            const likeRemove = post.likes.find(
+                                                (like) => like.user === like._id
+                                            );
+                                            if (likeRemove) {
+                                                handleUnlike(likeRemove._id);
+                                                postLikes[post._id] = false;
                                             }
                                         } else {
                                             handleLike(post._id);
+                                            postLikes[post._id] = true;
                                         }
+                                        setLikes(postLikes);
                                     }}
                                     >
-                                        <img src={Like} alt="" />
+
+                                        <img src={like? Heart : HeartOn } alt="" />
                                     </button>
                                     <span className='like_cnt'>{post.likes.length}</span>
                                 </li>
