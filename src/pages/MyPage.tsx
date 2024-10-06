@@ -131,7 +131,7 @@ const MyPage = () => {
             <div className="post-tab">
               {
                 posts?.map((post: Post) => (
-                  <div className="posts" key={post._id}>
+                  <div className="posts" key={post._id} onClick={() => navigate(`/detailpage/${post._id}`)}>
                     <img src={post.image} alt="Post" />
                   </div>
                 ))
