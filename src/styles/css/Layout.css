@@ -97,6 +97,12 @@ main {
   * .container .content-box > button .page-container {
     padding-bottom: 63px;
   }
+  * .container .rightlogo-container {
+    display: none;
+  }
+  * .container .form {
+    width: 80% !important;
+  }
 }
 @media (min-width: 335px) and (max-width: 534px) {
   * .container .header {
@@ -145,6 +151,12 @@ main {
   * .container .content-box > button .page-container {
     padding-bottom: 63px;
   }
+  * .container .rightlogo-container {
+    display: none;
+  }
+  * .container .form {
+    width: 80% !important;
+  }
 }
 @media (min-width: 535px) and (max-width: 719px) {
   * .container .header {
@@ -182,5 +194,11 @@ main {
   }
   * .container .content-box > button .page-container {
     padding-bottom: 63px;
+  }
+  * .container .rightlogo-container {
+    display: none;
+  }
+  * .container .form {
+    width: 80% !important;
   }
 }
