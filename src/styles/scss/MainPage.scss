@@ -42,5 +42,13 @@
     font-size: 45px;
     line-height: 48px;
     text-align: center;
+
+    a{
+        color: #FFFFFF;
+        text-decoration: none;
+        :visited{
+            color: #FFFFFF;
+        }
+    }
 }
 

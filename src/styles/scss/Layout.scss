@@ -22,11 +22,12 @@
     padding: 0;
     list-style: none;
     box-sizing: border-box;
+
     
     .container {
         margin: auto;
         width: 100vw;
-        height: 100vh;
+        // height: 100vh;
         overflow: hidden;
         background: #FFE68B;
     
@@ -77,8 +78,6 @@
 
                 .user_post{
                     .user_info {
-                        margin-bottom: -8vw;
-
                         .user_profile {
                             width: 38px;
                             height: 38px;
@@ -100,6 +99,17 @@
                 bottom: 120px;
                 font-size: 35px;
                 line-height: 30px;
+            }
+
+            .input-bar{
+                bottom: 63px;
+            }
+
+            .content-box > button{
+                bottom: 63px;
+                .page-container{
+                    padding-bottom: 63px;
+                }
             }
         }
         // 반응형 모바일부터 태블릿
@@ -131,23 +141,28 @@
                     li {
                         margin: 0 auto !important;
                     }
-                    li:nth-child(6),li:nth-child(7) {
+                    li:nth-child(4),li:nth-child(5) {
                         display: none;
                     }
                 }
             }
             .post_area {
                 padding: 25px 20px 100px;
-
-                .user_post{
-                    .user_info {
-                        margin-bottom: -8vw;
-                    }
-                } 
             }
             .post_add {
                 right: 20px;
                 bottom: 90px;
+            }
+
+            .input-bar{
+                bottom: 63px;
+            }
+
+            .content-box > button{
+                bottom: 63px;
+                .page-container{
+                    padding-bottom: 63px;
+                }
             }
         }
         // 반응형 최대
@@ -175,18 +190,23 @@
             }
             .post_area {
                 padding: 25px 20px 220px;
-                
-                .user_post{
-                    .user_info {
-                        margin-bottom: -8vw;
-                    }
-                } 
             }
             .post_add {
                 right: 20px;
                 bottom: 110px;
             }
+
+            .input-bar{
+                bottom: 63px;
+            }
+
+            .content-box > button{
+                bottom: 63px;
+
+                .page-container{
+                    padding-bottom: 63px;
+                }
+            }
         }
     }
 }
-  

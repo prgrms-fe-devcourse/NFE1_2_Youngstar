@@ -1,0 +1,55 @@
+.content-box{
+    padding-top: 63px;
+
+    .button-box {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-bottom: 15px;
+        text-align: center;
+
+        img{
+            width: 30px;
+            margin: 0 auto;
+        }
+
+        #chooseFile {
+            display: none;
+        }
+    }
+
+    textarea{
+        width: 100%;
+        height: calc(100vh - 50px - 63px - 45px - 63px);
+        border: none;
+        border-top: 1px solid #d9d9d9;
+        padding: 15px 20px;
+        resize: none;
+    }
+
+    .titleInput {
+        width: 100%;
+        padding: 15px 20px;
+        border: none;
+        border-top: 1px solid #d9d9d9;
+    }
+
+    textarea:focus,
+    .titleInput:focus {
+        outline: none;
+    }
+
+    button{
+        width: 100%;
+        max-width: 600px;
+        height: 40px;
+        position: fixed;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: none;
+        background-color: #d1d1d1;
+        border-radius: 5px 5px 0 0;
+    }
+}
+

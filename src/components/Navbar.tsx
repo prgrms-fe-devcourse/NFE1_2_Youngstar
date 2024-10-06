@@ -30,20 +30,20 @@ const Navbar = () => {
                 <li className='go_home on' data-path="/">
                     <Link to={'/'}></Link>
                 </li>
-                <li className='go_hot' data-path="#">
-                    <Link to={'#'}></Link>
+                <li className='go_hot' data-path="/hotpost">
+                    <Link to={'/hotpost'}></Link>
                 </li>
                 <li className='go_chat' data-path="/chatting">
                     <Link to={'/chatting'}></Link>
                 </li>
-                <li className='go_scrap' data-path="#">
-                    <Link to={'#'}></Link>
+                <li className='go_scrap' data-path="/saved">
+                    <Link to={'/saved'}></Link>
                 </li>
                 <li className='go_alram' data-path="/notification">
                     <Link to={'#'}></Link>
                 </li>
-                <li className='go_map' data-path="#">
-                    <Link to={'#'}></Link>
+                <li className='go_map' data-path="/map">
+                    <Link to={'/map'}></Link>
                 </li>
                 <li className='go_mypage' data-path="/mypage">
                     <Link to={'/mypage'}></Link>

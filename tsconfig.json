@@ -3,5 +3,10 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": { // 1001 추가 - 카카오 지도 api 세팅
+    "types": [
+      "kakao.maps.d.ts"
+    ]
+  }
 }

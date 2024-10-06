@@ -1,4 +1,5 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -6,8 +7,10 @@ import '../styles/css/Post.css'
 import Like from '../assets/like_btn.png';
 import Comments from '../assets/comments_btn.png';
 import Scrap from '../assets/scrap_btn.png';
+import { Link } from 'react-router-dom';
 
 const Post = () => {
+    // 슬라이드 셋팅
     const settings = {
         dots: true,
         infinite: false,
@@ -16,46 +19,138 @@ const Post = () => {
         slidesToScroll: 1
     }
 
+    interface User {
+        "coverImage": string, // 커버 이미지
+        "image": string, // 프로필 이미지
+        "role": String,
+        "emailVerified": Boolean, // 사용되지 않음
+        "banned": Boolean, // 사용되지 않음
+        "isOnline": Boolean,
+        "posts": Post[],
+        "likes": Like[],
+        "comments": String[],
+        "followers": [],
+        "following": [
+          {
+            "_id": "6169e91316cb2265df003c6d",
+            "user": "6169e58216cb2265df003bf4",
+            "follower": "6169e206aa57d952c6dc1edd",
+            "createdAt": "2021-10-15T20:48:19.816Z",
+            "updatedAt": "2021-10-15T20:48:19.816Z",
+            "__v": 0
+          }
+        ],
+        "notifications": Notification[],
+        "messages": Message[],
+        "_id": String,
+        "fullName": String,
+        "email": String,
+        "createdAt": String,
+        "updatedAt": String
+    }
+
+    interface Like {
+        "_id": String,
+        "user": String, // 사용자 id
+        "post": String, // 포스트 id
+        "createdAt": String,
+        "updatedAt": String
+    }
+
+    interface Message {
+        "_id": String,
+        "message": String,
+        "sender": User,
+        "receiver": User,
+        "seen": Boolean,
+        "createdAt": String,
+        "updatedAt": String
+    }
+
+    interface Channel {
+        "authRequired": Boolean, // 사용되지 않음
+        "posts": String[],
+        "_id": String,
+        "name": String,
+        "description": String,
+        "createdAt": String,
+        "updatedAt": String
+    }
+
+    interface Post {
+        "likes": Like[],
+        "comments": Comment[],
+        "_id": String,
+        "image"?: string,
+        "imagePublicId"?: string,
+        "title": String,
+        "channel": Channel,
+        "author": User,
+        "createdAt": String,
+        "updatedAt": String,
+        "__v": string
+    }
+
+    const [postList, setPostList] = useState<Post[]>([]);
+
+    useEffect(() => {
+        const loadPostData = async() => {
+            try {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts/channel/65a637c681af0c2145980120`);
+                setPostList(response.data);
+                console.log(response.data);
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        loadPostData();
+    },[]);
+
     return (
-        
-            <div className='user_post'>
-                <div className='user_info'>
-                    <p>
-                        <img src="src/assets/chun_bong.png" alt="" className='user_profile'/>
-                        <span className='user_nickname'>chun_bong</span>
-                    </p>
-                    <button className='follow_btn'>following</button>
-                </div>
-                <Slider {...settings}>
-                    <img src="https://img.khan.co.kr/news/2024/03/23/news-p.v1.20240323.c159a4cab6f64473adf462d873e01e43_P1.jpg" alt="" className='user_picture'/>
-                    <img src="https://images.mypetlife.co.kr/content/uploads/2023/11/18161317/d6c08aa5-dc1c-46a1-97bb-6782641c1624.jpeg" alt="" className='user_picture'/>
-                    <img src="https://cdn.imweb.me/upload/S201910012ff964777e0e3/62f9a36ea3cea.jpg" alt="" className='user_picture'/>
-                    <img src="https://health.chosun.com/site/data/img_dir/2024/04/23/2024042302394_0.jpg" alt="" className='user_picture'/>
-                    <img src="https://image.dongascience.com/Photo/2020/03/5bddba7b6574b95d37b6079c199d7101.jpg" alt="" className='user_picture'/>
-                </Slider>
-                <p className='user_text'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-                <ul className='buttons'>
-                    <li className='like'>
-                        <button className='like_btn'>
-                            <img src={Like} alt="" />
-                        </button>
-                        <span className='like_cnt'>77</span>
-                    </li>
-                    <li className='comments'>
-                        <button className='comments_btn'>
-                            <img src={Comments} alt="" />
-                        </button>
-                        <span className='comments_cnt'>77</span>
-                    </li>
-                    <li className='scrap'>
-                        <button className='scrap_btn'>
-                            <img src={Scrap} alt="" />
-                        </button>
-                    </li>
-                </ul>
-            </div>
+            <>
+                {
+                    postList.map((post, idx) => (
+                        <div className='user_post' key={idx}>
+                            <div className='user_info' >
+                                <p>
+                                    <img src={post.author.image || '/default.jpg'} alt="" className='user_profile'/>
+                                    <span className='user_nickname'>{post.author.fullName}</span>
+                                </p>
+                                <button className='follow_btn'>following</button>
+                            </div>
+                            <Slider {...settings}>
+                                <img src={post.image} alt="User post" className='user_picture' />
+                            </Slider>
+                            <p className='user_text'>
+                                {post.title}
+                            </p>
+                            <ul className='buttons'>
+                                <li className='like'>
+                                    <button className='like_btn'>
+                                        <img src={Like} alt="" />
+                                    </button>
+                                    <span className='like_cnt'>{post.likes.length}</span>
+                                </li>
+                                <li className='comments'>
+                                    <button className='comments_btn'>
+                                        <img src={Comments} alt="" />
+                                    </button>
+                                    <span className='comments_cnt'>{post.comments.length}</span>
+                                </li>
+                                <li className='scrap'>
+                                    <button className='scrap_btn'>
+                                        <Link to={'/starredpage'}>
+                                            <img src={Scrap} alt="" />
+                                        </Link>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    ))
+                }
+                
+            </>
+            
     );
 };
 
