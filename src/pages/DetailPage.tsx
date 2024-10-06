@@ -14,8 +14,8 @@ import PageHeader from '../components/PageHeader';
 import axios from 'axios';
 import Post from '../types/Post';
 import Like from '../types/Like';
-import Liked from '../assets/Liked.svg'
-import notLiked from '../assets/notLiked.svg'
+import Liked from '../assets/Liked.png'
+import notLiked from '../assets/notLiked.png'
 
 const DetailPage = () => {
     const [show, setShow] = useState(false);

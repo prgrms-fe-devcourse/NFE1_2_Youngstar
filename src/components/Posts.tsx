@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,15 +9,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import Post from '../types/Post';
 import axios from 'axios';
 import Like from '../types/Like';
-import Liked from '../assets/Liked.svg'
-import notLiked from '../assets/notLiked.svg'
+import Liked from '../assets/Liked.png'
+import notLiked from '../assets/notLiked.png'
 
 
 interface PostsProps {
     posts: Post[];
 }
 
-const Posts = ({ posts }: PostsProps) => {
+const Posts = React.memo(({ posts }: PostsProps) => {
     const [postList, setPostList] = useState<Post[]>(posts);
     const token = localStorage.getItem('token');
     const handleLike = async (postId: string) => {
@@ -151,6 +151,6 @@ const Posts = ({ posts }: PostsProps) => {
             </>
             
     );
-};
+});
 
 export default Posts;

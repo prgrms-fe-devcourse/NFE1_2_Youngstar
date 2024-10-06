@@ -1,7 +1,7 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import "../styles/scss/Mypage.scss"; 
+import "../styles/css/Mypage.css"; 
 import profileImage from "../assets/chun_bong.png";
 import settingIcon from "../assets/Setting.svg";
 import SetModal from "./SettingModal";
@@ -12,6 +12,7 @@ import Follow from "../types/Follow";
 import User from "../types/User";
 import { useAuth } from "../hooks/useAuth";
 import PageHeader from "../components/PageHeader";
+import axios from "axios";
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -27,6 +28,9 @@ const MyPage = () => {
   const [id, setId] = useState(paramId || JSON.parse(localStorage.getItem('user') || '')._id);
   const [data, setData] = useState<User | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
+  const [isFollowing, setIsFollowing] = useState(false)
+
+  const user = JSON.parse(localStorage.getItem('user') || '');
 
   const userData = useFetchUser(id);
   const postData = useFetchUserPost(id);
@@ -52,6 +56,10 @@ const MyPage = () => {
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  useEffect(() => {
+    setIsFollowing(user.following.includes(id));
+  }, [id]);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -90,18 +98,75 @@ const MyPage = () => {
     fetchFollowingData();
   }, [id, data, search]);
 
+  const handleFollow = async () => {
+    const user = JSON.parse(localStorage.getItem('user') || '');
+    
+    if (isFollowing) {
+      try {
+        const response = await axios.delete(
+          `${import.meta.env.VITE_API_URL}/follow/delete`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+            data: { userId: id },
+          }
+        );
+        alert('언팔로우 성공');
+        setIsFollowing(false);
+      } catch (error) {
+        console.error("언팔로우 실패", error);
+      }
+    } else {
+      try {
+        const response = await axios.post(
+          `${import.meta.env.VITE_API_URL}/follow/create`,
+          { userId: id },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        );
+        alert('팔로우 성공');
+        setIsFollowing(true);
+      } catch (error) {
+        console.error("팔로우 실패", error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (userData && userData.data) {
+      setData(userData.data);
+    }
+  }, [userData]);
+  
+  useEffect(() => {
+    if (postData && postData.data) {
+      setPosts(postData.data);
+    }
+  }, [postData]);
+  
+  
+
   return (
     <div className="page-container">
       {
-        (id ===  JSON.parse(localStorage.getItem('user') || '')._id) &&
+        (id ===  user._id) &&
           <div className="logout">
             <button onClick={handleLogout}>로그아웃</button>
           </div>
       }
       {
-        (id !==  JSON.parse(localStorage.getItem('user') || '')._id) &&
+        (id !==  user._id) &&
+        <button className='follow_btn' onClick={() => handleFollow(id)}>
+          {isFollowing ? 'following' : 'follow'}
+        </button>
+      }
+      {
+        (id !== user._id) &&
           <PageHeader> </PageHeader>
-
       }
 
       <div className="setting-section">
