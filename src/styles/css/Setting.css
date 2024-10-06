@@ -18,6 +18,9 @@
   background-color: white;
   z-index: 1001;
 }
+.settingContainer .setting-content input {
+  padding: 5px;
+}
 .settingContainer .setting-content .baack-image {
   background-color: white;
   border: none;
@@ -28,7 +31,7 @@
   bottom: 30px;
   font-weight: bold;
   font-size: 25px;
-  border: solid yellow 1px;
+  border: solid #FFE68B 1px;
 }
 .settingContainer .setting-content .profile-section {
   display: flex;
@@ -97,7 +100,7 @@
   bottom: 10px;
   font-weight: bold;
   font-size: 25px;
-  border: solid yellow 1px;
+  border: solid #FFE68B 1px;
 }
 .settingContainer .setting-content .intro-section {
   display: flex;
@@ -123,15 +126,15 @@
   padding: 10px 30px;
   border-radius: 10px;
   font-size: 16px;
-  color: rgb(229, 229, 27);
+  color: #000000;
   background-color: white;
-  border-color: yellow;
+  border: 3px solid #FFE68B;
 }
 .settingContainer .setting-content .settingbutton-section .cancel-button {
   padding: 10px 30px;
   border-radius: 10px;
   font-size: 16px;
-  color: rgb(188, 188, 188);
+  color: #000000;
   background-color: white;
-  border-color: rgb(175, 188, 175);
+  border: 3px solid #999999;
 }

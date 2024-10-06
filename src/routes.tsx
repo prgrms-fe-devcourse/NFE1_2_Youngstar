@@ -17,12 +17,13 @@ const routes = [
     children: [
       { path: '/', element: <MainPage /> },
       { path: '/mypage', element: <MyPage /> },
+      { path: '/mypage/:id', element: <MyPage /> },
       { path: '/joinPage', element:<JoinPage/>},
       { path: '/loginpage', element: <LoginPage /> },
       { path: '/notification', element: <NotificationPage /> },
       { path: '/chatting', element: <ChatPage /> },
       { path: '/saved', element: <StarredPage /> },
-      { path: '/detailpage', element: <DetailPage /> },
+      { path: '/detailpage/:id', element: <DetailPage /> },
       { path: '/postform', element: <PostFormPage /> },
       { path: '/map', element: <MapPage />},
       { path: '/hotpost', element: <HotPost /> }
