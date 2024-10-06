@@ -17,6 +17,7 @@ const routes = [
     children: [
       { path: '/', element: <MainPage /> },
       { path: '/mypage', element: <MyPage /> },
+      { path: '/mypage/:id', element: <MyPage /> },
       { path: '/joinPage', element:<JoinPage/>},
       { path: '/loginpage', element: <LoginPage /> },
       { path: '/notification', element: <NotificationPage /> },

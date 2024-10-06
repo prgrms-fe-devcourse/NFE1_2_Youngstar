@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import "../styles/scss/Mypage.scss"; 
@@ -11,20 +11,42 @@ import useFetchUserPost from "../hooks/useFetchUserPost";
 import Follow from "../types/Follow";
 import User from "../types/User";
 import { useAuth } from "../hooks/useAuth";
+import PageHeader from "../components/PageHeader";
 
 const MyPage = () => {
   const navigate = useNavigate();
   const { logout } = useAuth();
-  const { pathname } = useLocation();
+  const { id: paramId } = useParams(); 
+  const { pathname, search } = useLocation();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState('post');
-  const [followingData, setFollowingData] = useState<(User | null)[]>([])
-  const [followersData, setFollowersData] = useState<(User | null)[]>([])
+  const [followingData, setFollowingData] = useState<(User | null)[]>([]);
+  const [followersData, setFollowersData] = useState<(User | null)[]>([]);
+  
+  const [id, setId] = useState(paramId || JSON.parse(localStorage.getItem('user') || '')._id);
+  const [data, setData] = useState<User | null>(null);
+  const [posts, setPosts] = useState<Post[]>([]);
 
+  const userData = useFetchUser(id);
+  const postData = useFetchUserPost(id);
+
+  useEffect(() => {
+    if (userData?.data) {
+      setData(userData.data); 
+    }
+
+    if (postData?.data) {
+      setPosts(postData.data);
+    }
+
+    console.log(data);
+    console.log(posts);
+  }, [id, userData, postData]);
+  
   const handleLogout = () => {
     logout(); 
-    navigate("/loginpage"); // 로그아웃 후 로그인 페이지로 이동
+    navigate("/loginpage");
   };
 
   const toggleModal = () => {
@@ -38,13 +60,7 @@ const MyPage = () => {
       navigate("/loginPage", { state: pathname });
     }
   }, [navigate, pathname]);
-
-  const userData = localStorage.getItem('user');
-  const userId = userData ? JSON.parse(userData)._id : null;
-
-  const { data } = useFetchUser(userId);
-  const posts = useFetchUserPost(userId).data;
-
+  
   useEffect(() => {
     const fetchFollowersData = async () => {
       if (data?.followers) {
@@ -72,13 +88,22 @@ const MyPage = () => {
 
     fetchFollowersData();
     fetchFollowingData();
-  }, [data?.followers, data?.following]);
+  }, [id, data, search]);
 
   return (
     <div className="page-container">
-      <div className="logout">
-        <button onClick={handleLogout}>로그아웃</button>
-      </div>
+      {
+        (id ===  JSON.parse(localStorage.getItem('user') || '')._id) &&
+          <div className="logout">
+            <button onClick={handleLogout}>로그아웃</button>
+          </div>
+      }
+      {
+        (id !==  JSON.parse(localStorage.getItem('user') || '')._id) &&
+          <PageHeader> </PageHeader>
+
+      }
+
       <div className="setting-section">
         <img className="setting" src={settingIcon} alt="Setting" onClick={toggleModal}/>
       </div>
@@ -103,8 +128,8 @@ const MyPage = () => {
             <div className="post-tab">
               {
                 posts?.map((post: Post) => (
-                  <div className="posts">
-                    <img src={post.image}></img>
+                  <div className="posts" key={post._id}>
+                    <img src={post.image} alt="Post" />
                   </div>
                 ))
               }                  
@@ -119,7 +144,6 @@ const MyPage = () => {
                     <div className="follower-info">
                       <div className="follower-img">
                         <img src={followedUser?.coverImage} alt="follower profile" />
-                        {/* <img src='src/assets/postImage1.png' alt="follower profile" /> */}
                       </div>
                       <div className="follower-name">{followedUser?.fullName}</div>
                     </div>
@@ -133,27 +157,26 @@ const MyPage = () => {
         {
           currentTab === 'follower' && (
             <div className="follower-tab">
-            {
-              followersData.map((followedUser, index) => (
-                <div className="follower" key={index}>
-                  <div className="follower-info">
-                    <div className="follower-img">
-                      <img src={followedUser?.coverImage} alt="follower profile" />
+              {
+                followersData.map((followedUser, index) => (
+                  <div className="follower" key={index}>
+                    <div className="follower-info">
+                      <div className="follower-img">
+                        <img src={followedUser?.coverImage} alt="follower profile" />
+                      </div>
+                      <div className="follower-name">{followedUser?.fullName}</div>
                     </div>
-                    <div className="follower-name">{followedUser?.fullName}</div>
+                    <button className="follow-btn">
+                      {followingData.some(f => f?._id === followedUser?._id) ? 'following' : 'follow'}
+                    </button>
                   </div>
-                  <button className="follow-btn">
-                    {followingData.some(f => f?._id === followedUser?._id) ? 'following' : 'follow'}
-                  </button>
-                </div>
-              ))
-            }
-          </div>
+                ))
+              }
+            </div>
           )
         }
       </div>
 
-      {/* 0928 - 모달이 열릴 때만 렌더링 추가 */}
       {isModalOpen && <SetModal onClose={toggleModal} />} 
     </div>
   );

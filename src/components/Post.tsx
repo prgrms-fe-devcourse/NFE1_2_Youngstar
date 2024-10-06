@@ -7,7 +7,7 @@ import '../styles/css/Post.css'
 import Like from '../assets/like_btn.png';
 import Comments from '../assets/comments_btn.png';
 import Scrap from '../assets/scrap_btn.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Post = () => {
     // 슬라이드 셋팅
@@ -106,12 +106,18 @@ const Post = () => {
         loadPostData();
     },[]);
 
+    const navigate = useNavigate();
+
+    const handleClickUser = (id: String) => {
+        navigate(`/mypage/${id}`);
+    }
+
     return (
             <>
                 {
                     postList.map((post, idx) => (
                         <div className='user_post' key={idx}>
-                            <div className='user_info' >
+                            <div className='user_info' onClick={() =>handleClickUser(post.author._id)}>
                                 <p>
                                     <img src={post.author.image || '/default.jpg'} alt="" className='user_profile'/>
                                     <span className='user_nickname'>{post.author.fullName}</span>
