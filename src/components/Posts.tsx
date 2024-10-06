@@ -14,7 +14,6 @@ interface PostsProps {
 }
 
 const Posts = ({ posts }: PostsProps) => {
-    console.log(posts);
     const [postList, setPostList] = useState<Post[]>(posts);
 
     useEffect(() => {

@@ -12,6 +12,7 @@ import Comment from '../types/Comment';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
+import axios from 'axios';
 
 const DetailPage = () => {
     const [show, setShow] = useState(false);
@@ -30,6 +31,35 @@ const DetailPage = () => {
         slidesToScroll: 1
     }
     console.log(data);
+
+    const handleComment = () => {
+        const inputNode = document.querySelector('.comment-input') as HTMLInputElement;
+        const text = inputNode.value;
+
+        const addComment = async(comment: string) => {
+            const token = localStorage.getItem('token');
+            try {
+                const response = await axios.post(
+                    `${import.meta.env.VITE_API_URL}/comments/create`,
+                    {
+                        comment: comment,
+                        postId: data._id
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    },
+                );
+                return response.data
+
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        addComment(text);
+    }
 
     return (
         <div className='detail-container'>
@@ -95,8 +125,8 @@ const DetailPage = () => {
                         </ul>
                     </div>
                     <div className='comment_post_area'>
-                        <input type="text" placeholder='댓글을 입력해 주세요'/>
-                        <button>입력</button>
+                        <input type="text" className='comment-input' placeholder='댓글을 입력해 주세요'/>
+                        <button onClick={handleComment}>입력</button>
                     </div>
                 </div>
                 {/* 모달창 영역, 평소에는 display : none */}
