@@ -9,8 +9,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Post from '../types/Post';
 import axios from 'axios';
 import Like from '../types/Like';
-import Liked from '../assets/Liked.svg'
-import notLiked from '../assets/notLiked.svg'
+import Liked from '../assets/Liked.png'
+import notLiked from '../assets/notLiked.png'
 
 
 interface PostsProps {
