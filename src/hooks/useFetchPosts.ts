@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Post from '../types/Post';
 
-export default function useFetchPost(id: string) {
-  const [data, setData] = useState<Post | null>(null);
+export default function useFetchPosts() {
+  const [data, setData] = useState<Post[]>([]);
 
-  const url = `${import.meta.env.VITE_API_URL}/posts/${id}`;
+  const url = `${import.meta.env.VITE_API_URL}/posts`;
 
   useEffect(() => {
     const fetchData = async () => {

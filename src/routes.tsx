@@ -23,7 +23,7 @@ const routes = [
       { path: '/notification', element: <NotificationPage /> },
       { path: '/chatting', element: <ChatPage /> },
       { path: '/saved', element: <StarredPage /> },
-      { path: '/detailpage', element: <DetailPage /> },
+      { path: '/detailpage/:id', element: <DetailPage /> },
       { path: '/postform', element: <PostFormPage /> },
       { path: '/map', element: <MapPage />},
       { path: '/hotpost', element: <HotPost /> }

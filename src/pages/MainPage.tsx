@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Follower from "../components/UserLive";
-import Post from "../components/Post";
+import Posts from "../components/Posts";
 import "../styles/css/MainPage.css";
-import useFetchUsers from "../hooks/useFetchUsers";
 import { useAuth } from "../hooks/useAuth";
+import useFetchPosts from "../hooks/useFetchPosts";
 
 const MainPage = () => {
   const { authUser, token } = useAuth();
@@ -31,11 +30,13 @@ const MainPage = () => {
     checkAuth();
   }, [authUser, navigate, isAuthChecked, pathname]);
 
+  const { data } = useFetchPosts();
+
   return (
-    <div className="page-container">
+    <div className="main-page-container">
       <Follower />
       <div className="post_area">
-        <Post />
+        <Posts posts={data}/>
       </div>
       <button className="post_add">
         <Link to={"/postform"}>+</Link>
