@@ -28,6 +28,7 @@
   background: #000;
 }
 .follower_area ul li p {
+  width: 100%;
   font-size: 11px;
   color: #000;
 }

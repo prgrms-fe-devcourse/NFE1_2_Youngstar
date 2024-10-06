@@ -60,7 +60,6 @@ const MainPage = () => {
           console.log(userPosts);
         }
       }
-
       setFilteredPost(userPosts);
     } catch (error) {
       console.error(error);
@@ -69,14 +68,20 @@ const MainPage = () => {
 
   useEffect(() => {
     searchItems();
-  }, [searchQuery]);
-
+  }, [searchQuery, data]);
+  
+  useEffect(() => {
+    if (data) {
+      setFilteredPost(data);
+    }
+  }, [data]);
+  
 
   return (
     <div className="main-page-container">
       <Follower />
       <div className="post_area">
-        <Posts posts={filteredPost}/>
+        <Posts posts={filteredPost.slice(0,20)}/>
       </div>
       <button className="post_add">
         <Link to={"/postform"}>+</Link>

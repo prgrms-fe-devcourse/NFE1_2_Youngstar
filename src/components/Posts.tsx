@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -17,7 +17,7 @@ interface PostsProps {
     posts: Post[];
 }
 
-const Posts = ({ posts }: PostsProps) => {
+const Posts = React.memo(({ posts }: PostsProps) => {
     const [postList, setPostList] = useState<Post[]>(posts);
     const token = localStorage.getItem('token');
     const handleLike = async (postId: string) => {
@@ -151,6 +151,6 @@ const Posts = ({ posts }: PostsProps) => {
             </>
             
     );
-};
+});
 
 export default Posts;

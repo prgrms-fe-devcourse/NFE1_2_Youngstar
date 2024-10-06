@@ -131,7 +131,11 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
-.tab-content .follower .follow-btn {
+.tab-content .profile-img-list {
+  width: 10px;
+}
+
+.follow-btn {
   width: 78.26px;
   background-color: #000000;
   color: #FFFFFF;
@@ -140,7 +144,4 @@ body {
   border: none;
   height: fit-content;
   padding: 5px 8px;
-}
-.tab-content .profile-img-list {
-  width: 10px;
 }
