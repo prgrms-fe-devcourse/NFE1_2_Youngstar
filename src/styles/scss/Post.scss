@@ -28,6 +28,7 @@
             }
         }
 
+
         .follow_btn {
             width: 85px;
             height: 25px;
@@ -78,9 +79,20 @@
         align-items: center;
         margin-top: 20px;
 
+        .like_btn{
+            width: 24px;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        .like{
+            align-items: center;
+        }
+
         li {
             display: flex;
-            align-items: center;
             margin-right: 15px;
 
             button {
@@ -93,6 +105,13 @@
             height: 18px;
             border: none;
             background: none;
+        }
+
+        .comments{
+            span{
+                padding-top: 2px;
+                padding-left: 1px;
+            }
         }
     }
     
