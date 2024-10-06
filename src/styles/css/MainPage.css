@@ -2,6 +2,15 @@
   margin: 0 auto;
 }
 
+.main-page-container {
+  box-sizing: border-box;
+  max-width: 600px;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  height: calc(100vh - 63px);
+  width: 100%;
+}
+
 .post_area {
   background: #fff;
   padding: 25px 75px 160px;

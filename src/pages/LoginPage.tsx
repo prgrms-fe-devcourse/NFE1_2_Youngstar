@@ -29,7 +29,7 @@ const LoginPage: React.FC = () => {
     console.log("폼 제출 완료:", formState);
     try {
       await login(formState.email, formState.password);
-      navigate("/"); // 로그인 성공 시 메인 페이지로 이동
+      // navigate("/"); // 로그인 성공 시 메인 페이지로 이동
     } catch(e) {
       console.log("로그인 에러:", e)
     }
