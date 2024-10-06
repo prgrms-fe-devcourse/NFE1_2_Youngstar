@@ -37,10 +37,8 @@
 }
 .user_post .slick-list {
   box-sizing: border-box;
-  height: -moz-fit-content;
   height: fit-content;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   display: flex;
   align-items: center;
   margin-bottom: 30px;
@@ -71,9 +69,17 @@
   align-items: center;
   margin-top: 20px;
 }
+.user_post .buttons .like_btn {
+  width: 24px;
+}
+.user_post .buttons .like_btn img {
+  width: 100%;
+}
+.user_post .buttons .like {
+  align-items: center;
+}
 .user_post .buttons li {
   display: flex;
-  align-items: center;
   margin-right: 15px;
 }
 .user_post .buttons li button {
@@ -84,4 +90,8 @@
   height: 18px;
   border: none;
   background: none;
+}
+.user_post .buttons .comments span {
+  padding-top: 2px;
+  padding-left: 1px;
 }

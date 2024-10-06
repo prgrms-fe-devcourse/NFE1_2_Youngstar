@@ -12,10 +12,10 @@ const Header = () => {
     const [searchQuery,setSearchQuery]= useState('') //검색창에 입력된 텍스트 저장
     const {data}=useFetchUsers();//사용자 데이터 훅을 호출
 
-    const filteredUsers= data?.filter((user:Search)=>
-    user.fullName.toLowerCase().includes(searchQuery.toLowerCase())||
-user.email.toLowerCase().includes(searchQuery.toLowerCase())
-);
+//     const filteredUsers= data?.filter((user:Search)=>
+//     user.fullName.toLowerCase().includes(searchQuery.toLowerCase())||
+// user.email.toLowerCase().includes(searchQuery.toLowerCase())
+// );
 //검색어를 소문자로 변환후 이름이나 이메일에 검색한게 포함이 되어있는지
     return (
         <div className='header'>
@@ -35,7 +35,7 @@ user.email.toLowerCase().includes(searchQuery.toLowerCase())
                   {/* 검색 결과를 표시 */}
                   {searchQuery &&(
                     <div className='search_results'>
-                        {filteredUsers&& filteredUsers.length>0 ?(
+                        {/* {filteredUsers&& filteredUsers.length>0 ?(
                             filteredUsers.map((user)=>(
                                 <div key={user.id } className='search_result_item'>
                                     <p>{user.fullName} ({user.email})</p>
@@ -43,7 +43,7 @@ user.email.toLowerCase().includes(searchQuery.toLowerCase())
                             ))
                         ):(
                              <p>검색 결과가 없습니다.</p>   
-                        )}
+                        )} */}
                     </div>
                   )}
             </div>

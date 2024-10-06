@@ -2,8 +2,6 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/css/Post.css'
-import Heart from '../assets/like_btn.png';
-import HeartOn from '../assets/like_btn_on.svg';
 import Comments from '../assets/comments_btn.png';
 import Scrap from '../assets/scrap_btn.png';
 import Camera from '../assets/camera.svg';
@@ -14,22 +12,26 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 import axios from 'axios';
+import Post from '../types/Post';
+import Like from '../types/Like';
+import Liked from '../assets/Liked.svg'
+import notLiked from '../assets/notLiked.svg'
 
 const DetailPage = () => {
     const [show, setShow] = useState(false);
-    const [liked, setLike] = useState(false);
-    const [likeCnt, setLikeCnt] = useState(0);
     const { id: paramId } = useParams();
     const { data }  = useFetchPost(paramId || '');
     const [newComment, setNewComment] = useState<Comment[]>([]);
     const token = localStorage.getItem('token');
+    const [isLiked, setIsLiked] = useState(false);
+    const userId = JSON.parse(localStorage.getItem('user') || '')._id;
+
 
     useEffect(() => {
         if (data) {
-            setLike(data.likes.some(like => like.user === token));
-            setLikeCnt(data.likes.length); 
+            setIsLiked(data.likes.some((like: Like) => like.user === userId));
         }
-    },[data]);
+    }, [data, userId]);
 
 
     if (!data) {
@@ -43,52 +45,6 @@ const DetailPage = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     }
-
-    // 좋아요 추가 함수
-    const handleLike = async () => {
-        if (liked) return;
-        try {
-            const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}/likes/create`,
-                { postId: data._id },
-                { headers: { Authorization: `Bearer ${token}` } }
-            );
-            if (response.status === 200) {
-                setLike(true);
-                setLikeCnt((prev) => prev + 1);
-            }
-        } catch (error) {
-            console.error('좋아요 실패:', error);
-        }
-    };
-
-    // 좋아요 취소 함수
-    const handleUnlike = async () => {
-        if (!liked) return;
-        const userLike = data.likes.find((like) => like.user === like._id);
-
-        if(!userLike) {
-            console.error('사용자의 좋아요 정보 검색 불가');
-            return;
-        }
-
-        try {
-            const response = await axios.delete(
-                `${import.meta.env.VITE_API_URL}/likes/delete`,
-                {
-                    headers: { Authorization: `Bearer ${token}` },
-                    data: { id: data._id }
-                }
-            );
-            console.log(response);
-            if (response.status === 200) {
-                setLike(false);
-                setLikeCnt((prev) => prev - 1); // 좋아요 개수 감소
-            }
-        } catch (error) {
-            console.error('좋아요 취소 실패:', error);
-        }
-    };
 
     const handleComment = () => {
         const inputNode = document.querySelector('.comment-input') as HTMLInputElement;
@@ -121,6 +77,49 @@ const DetailPage = () => {
         addComment(text);
     }
 
+    const handleClickLike = (post: Post) => {
+        const myLike = post.likes.find((like: Like) =>  like.user === userId);
+        if(myLike) handleUnlike(myLike._id);
+        else handleLike(post._id);
+    }
+
+    const handleLike = async (postId: string) => {
+        try {
+            const response = await axios.post(
+                `${import.meta.env.VITE_API_URL}/likes/create`,
+                { postId },
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+            if (response.status === 200) {
+                setIsLiked(true);
+                data.likes.push(response.data);
+            }
+            
+        } catch (error) {
+            console.error('좋아요 실패:', error);
+        }
+    };
+
+    const handleUnlike = async (likeId: string) => {
+        try {
+            const response = await axios.delete(
+                `${import.meta.env.VITE_API_URL}/likes/delete`,
+                {
+                    headers: { Authorization: `Bearer ${token}` },
+                    data: {id: likeId}
+                }
+            );
+            if (response.status === 200) {
+                setIsLiked(false);
+                data.likes = data.likes.filter((like: Like) => like._id !== likeId); // 좋아요 취소
+            }
+
+        } catch (error) {
+            console.error('좋아요 취소 실패:', error);
+        }
+        
+    };
+
     return (
         <div className='detail-container'>
             <PageHeader> </PageHeader>
@@ -144,14 +143,14 @@ const DetailPage = () => {
                         {data.title}
                     </p>
                     <ul className='detail_buttons'>
-                    <li className='detail_like'>
+                    <li className='like'>
                         <button 
-                        className='detail_like_btn'
-                        onClick={liked ? handleUnlike : handleLike}
-                        >
-                            <img src={liked ? HeartOn : Heart} alt="" />
+                            className='like_btn'
+                            onClick={() =>handleClickLike(data)}
+                            >
+                            <img src={isLiked ? Liked : notLiked} alt="" />
                         </button>
-                        <span className='detail_like_cnt'>{likeCnt}</span>
+                        <span className='like_cnt'>{data.likes.length}</span>
                     </li>
                         <li className='detail_comments'>
                             <button className='detail_comments_btn'>

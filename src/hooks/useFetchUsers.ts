@@ -17,7 +17,7 @@ export default function useFetchUsers() {
 
   const [data, setData] = useState<User | null>(null);
 
-  const url = `${import.meta.env.VITE_API_URL}/users/65a4a01394116f19ad1334d5`
+  const url = `${import.meta.env.VITE_API_URL}/users/get-users`
   useEffect(() => {
     const fetchData = async () => {
       try {
