@@ -12,10 +12,6 @@ const Header = () => {
     const [searchQuery,setSearchQuery]= useState('') //검색창에 입력된 텍스트 저장
     const {data}=useFetchUsers();//사용자 데이터 훅을 호출
 
-//     const filteredUsers= data?.filter((user:Search)=>
-//     user.fullName.toLowerCase().includes(searchQuery.toLowerCase())||
-// user.email.toLowerCase().includes(searchQuery.toLowerCase())
-// );
 //검색어를 소문자로 변환후 이름이나 이메일에 검색한게 포함이 되어있는지
     return (
         <div className='header'>
