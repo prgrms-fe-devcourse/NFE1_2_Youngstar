@@ -14,7 +14,7 @@ const Header = () => {
 
     const filteredUsers= data?.filter((user:Search)=>
     user.fullName.toLowerCase().includes(searchQuery.toLowerCase())||
-user.email.toLowerCase().includes(searchQuery.toLowerCase())
+    user.email.toLowerCase().includes(searchQuery.toLowerCase())
 );
 //검색어를 소문자로 변환후 이름이나 이메일에 검색한게 포함이 되어있는지
     return (

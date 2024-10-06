@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { User, AuthResponse } from "../types/AuthTypes";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
@@ -11,6 +11,14 @@ export const useAuth = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const redirectUrl = state || '/';
+
+  // localStorage에 저장(map에서 사용)
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   // 로그인
   const login = async (email: string, password: string) => {
