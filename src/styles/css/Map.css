@@ -3,17 +3,55 @@
   align-items: center;
   flex-direction: column;
   margin-top: 90px;
-  width: 100%;
-  height: 100vh;
+  width: calc(100% - 50px);
+  height: calc(100% - 50px);
+  margin-left: 50px;
 }
-.map-container .fix-button {
+.map-container .map-button-container {
   display: flex;
   justify-content: center;
+  gap: 15px;
   margin-top: 75px;
+}
+.map-container .map-button-container .add-marker-button,
+.map-container .map-button-container .delete-marker-button {
+  display: flex;
+  justify-content: center;
   padding: 3px 30px;
   background-color: white;
   border: solid black 1.5px;
   border-radius: 10px;
   font-size: 15px;
   font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+.map-container .map-button-container .add-marker-button:hover,
+.map-container .map-button-container .delete-marker-button:hover {
+  background-color: black;
+  color: white;
+}
+.map-container .map-button-container .add-marker-button.disabled,
+.map-container .map-button-container .delete-marker-button.disabled {
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
+  border-color: grey;
+}
+.map-container .map-button-container .add-marker-button.disabled:hover,
+.map-container .map-button-container .delete-marker-button.disabled:hover {
+  background-color: grey;
+  color: white;
+}
+@media (max-width: 1440px) {
+  .map-container {
+    width: calc(100% - 50px);
+    height: calc(100vh - 55px);
+  }
+}
+@media (max-width: 600px) {
+  .map-container {
+    margin-left: 0;
+    width: 100%;
+    height: calc(100vh - 55px);
+  }
 }

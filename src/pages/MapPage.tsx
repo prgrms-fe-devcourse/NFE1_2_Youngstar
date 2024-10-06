@@ -1,52 +1,60 @@
-import { useEffect, useRef } from "react";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
+import useKakaoLoader from "../hooks/useKakaoLoader";
+import { useAuth } from "../hooks/useAuth";
+import { useMap } from "../hooks/useMap";
 import "../styles/scss/Map.scss";
 
-declare global {
-  interface Window {
-    kakao: any;
-  }
-}
-
-function MapPage() {
-  const mapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const { kakao } = window;
-    const container = mapRef.current;
-
-    if (container) {
-      // container가 존재할 때만 지도 생성
-      const mapOptions = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
-        level: 3,
-      };
-
-      const map = new kakao.maps.Map(container, mapOptions);
-      const markerPosition = new kakao.maps.LatLng(33.45074, 126.570667);
-
-      const iwContent =
-        '<div style="padding:15px; margin-bottom:15px;">이곳은 포스팅 썸네일이미지와 사용자 아이디가 들어가려나</div>';
-      const iwPosition = new kakao.maps.LatLng(33.450701, 126.570667);
-      const marker = new kakao.maps.Marker({
-        position: markerPosition,
-      });
-
-      const infowindow = new kakao.maps.InfoWindow({
-        position: iwPosition,
-        content: iwContent,
-      });
-
-      infowindow.open(map, marker);
-      marker.setMap(map);
-    }
-  }, []);
+export default function MapPage() {
+  useKakaoLoader();
+  const { token, user } = useAuth();
+  const {
+    position,
+    clickedPosition,
+    markers,
+    handleClick,
+    handleAddMarker,
+    deleteAllMarkers,
+  } = useMap(token || "", user);
 
   return (
     <div className="map-container">
-      <div className="map" ref={mapRef} style={{ width: "500px", height: "500px" }}></div>
-      <button className="fix-button">수정하기</button>
+      <Map
+        id="map"
+        center={position}
+        style={{
+          width: "600px",
+          height: "600px",
+        }}
+        level={2}
+        onClick={handleClick}
+      >
+        {markers.map((marker, index) => (
+          <MapMarker
+            key={index}
+            position={marker.position}
+            title={marker.title}
+          >
+            <div style={{ padding: "5px" }}>{marker.title}</div>
+          </MapMarker>
+        ))}
+        {clickedPosition && (
+          <MapMarker position={clickedPosition}>
+            <div style={{ padding: "5px" }}>선택한 위치</div>
+          </MapMarker>
+        )}
+      </Map>
+      <div className="map-button-container">
+        <button className="add-marker-button" onClick={handleAddMarker}>
+          장소 추가하기
+        </button>
+        <button
+          className={`delete-marker-button ${markers.length === 0 ? "disabled" : ""}`}
+          onClick={deleteAllMarkers}
+          disabled={markers.length === 0}
+        >
+          모든 마커 삭제
+        </button>
+      </div>
     </div>
   );
 }
-
-export default MapPage;
