@@ -5,7 +5,7 @@ import Post from '../types/Post';
 export default function useFetchPost() {
   const [data, setData] = useState<Post | null>(null);
 
-  const url = 'https://kdt.frontend.5th.programmers.co.kr:5007/posts/65a91209fd2e931f3feefb70';
+  const url = `${import.meta.env.VITE_API_URL}/posts/66b4cc15b220810bf8689085`;
 
   useEffect(() => {
     const fetchData = async () => {

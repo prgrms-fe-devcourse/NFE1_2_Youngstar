@@ -1,0 +1,19 @@
+.map-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 90px;
+  width: 100%;
+  height: 100vh;
+}
+.map-container .fix-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 75px;
+  padding: 3px 30px;
+  background-color: white;
+  border: solid black 1.5px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}

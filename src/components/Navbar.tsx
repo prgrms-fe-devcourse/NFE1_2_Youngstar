@@ -42,8 +42,8 @@ const Navbar = () => {
                 <li className='go_alram' data-path="/notification">
                     <Link to={'#'}></Link>
                 </li>
-                <li className='go_map' data-path="#">
-                    <Link to={'#'}></Link>
+                <li className='go_map' data-path="/map">
+                    <Link to={'/map'}></Link>
                 </li>
                 <li className='go_mypage' data-path="/mypage">
                     <Link to={'/mypage'}></Link>

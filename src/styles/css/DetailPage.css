@@ -76,7 +76,9 @@
 }
 .detail_area .detail_post .slick-list {
   width: 100%;
-  height: auto;
+  height: 450px !important;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: flex;
   align-items: center;
   margin-bottom: 30px;

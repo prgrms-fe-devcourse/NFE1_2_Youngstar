@@ -37,8 +37,10 @@
 }
 .user_post .slick-list {
   box-sizing: border-box;
+  height: -moz-fit-content;
   height: fit-content;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: flex;
   align-items: center;
   margin-bottom: 30px;

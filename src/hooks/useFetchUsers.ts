@@ -1,13 +1,23 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+// import post from '../types/Post';
+// import Userpage from'../types/Userpage'
+// import  Search  from '../types/Search'
+
+
+// export default function useFetchUsers() {
+//   const [data, setData] = useState  <Search[]| null>(null);
+
+//   // const url = "https://kdt.frontend.5th.programmers.co.kr:5001/posts/65a7e3d3ddb5911c0c0f9dfb"
+//   // const url = "https://kdt.frontend.5th.programmers.co.kr:5001/users/65af52230f190d3bd8fe81df"
+//   const url ="https://kdt.frontend.5th.programmers.co.kr:5010/users/get-users"
 import User from '../types/User';
 
 export default function useFetchUsers() {
 
-//   const url = 'https://kdt.frontend.5th.programmers.co.kr:5006/users/get-users';
   const [data, setData] = useState<User | null>(null);
 
-  const url = 'https://kdt.frontend.5th.programmers.co.kr:5010/users/66fa3fe9b220810bf869cea5'
+  const url = `${import.meta.env.VITE_API_URL}/users/65a4a01394116f19ad1334d5`
   useEffect(() => {
     const fetchData = async () => {
       try {
