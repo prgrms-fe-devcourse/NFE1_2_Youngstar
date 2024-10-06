@@ -18,6 +18,7 @@ const DetailPage = () => {
     const [show, setShow] = useState(false);
     const { id: paramId } = useParams();
     const { data }  = useFetchPost(paramId || '');
+    const [newComment, setNewComment] = useState<Comment[]>([]);
 
     if (!data) {
         return ;
@@ -30,7 +31,6 @@ const DetailPage = () => {
         slidesToShow: 1,
         slidesToScroll: 1
     }
-    console.log(data);
 
     const handleComment = () => {
         const inputNode = document.querySelector('.comment-input') as HTMLInputElement;
@@ -51,6 +51,8 @@ const DetailPage = () => {
                         },
                     },
                 );
+                setNewComment((prev: Comment[]) => [...prev, response.data]);
+                inputNode.value='';
                 return response.data
 
             } catch (error) {
@@ -107,7 +109,6 @@ const DetailPage = () => {
                         <span>comments</span>
                         <ul className='comment_lists'>
                             {
-
                                 data.comments.map((comment: Comment) => {
                                     return(
                                         <li key={comment._id}>
@@ -122,10 +123,27 @@ const DetailPage = () => {
                                     )
                                 })
                             }
+                            {
+                                newComment?.map((comment: Comment) => {
+                                    return(
+                                        <li key={comment._id}>
+                                            <div className='comment_user_info'>
+                                                <img src="" alt="" />
+                                                <span>{comment.author.fullName}</span>
+                                            </div>
+                                            <p className='comment'>
+                                                {comment.comment}
+                                            </p>
+                                        </li>
+                                    )
+                                })
+                            } 
                         </ul>
                     </div>
                     <div className='comment_post_area'>
-                        <input type="text" className='comment-input' placeholder='댓글을 입력해 주세요'/>
+                        <input type="text" className='comment-input' placeholder='댓글을 입력해 주세요' 
+                            onKeyUp={(e) => {if (e.key === 'Enter') { handleComment();}}}
+                            />
                         <button onClick={handleComment}>입력</button>
                     </div>
                 </div>

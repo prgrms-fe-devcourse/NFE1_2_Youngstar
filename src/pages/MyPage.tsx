@@ -111,9 +111,13 @@ const MyPage = () => {
         <img className="profile-image" src={profileImage} alt="Profile" />
         <h2 className="user-id">{data?.fullName}</h2>
         <div className="introduce-box">
-          <p className="introduce-text">
-            {data?.username}
-          </p>
+          {
+            data?.username && 
+            <p className="introduce-text">
+              {data?.username}
+            </p>
+          }
+         
         </div>
       </div>
       <div className="tab-section">
