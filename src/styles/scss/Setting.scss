@@ -28,6 +28,10 @@ $z-index-modal: 1001; //modal이 위에 뜨게 z-index 지정
         border-radius: $modal-border-radius;
         background-color: white;
         z-index: $z-index-modal;
+
+        input{
+            padding: 5px;
+        }
         // 뒤로가기 버튼
         .baack-image{
             background-color: white;
@@ -39,7 +43,7 @@ $z-index-modal: 1001; //modal이 위에 뜨게 z-index 지정
             bottom: 30px;
             font-weight: bold;
             font-size: 25px;
-         border: solid yellow 1px
+         border: solid #FFE68B 1px
         }
 
         // 사용자 프로필 관련 부분
@@ -104,6 +108,7 @@ $z-index-modal: 1001; //modal이 위에 뜨게 z-index 지정
             }
          
         }
+
         // 사용자 정보 (비밀번호입력창)
             .password-section{
                 display: flex;
@@ -127,7 +132,7 @@ $z-index-modal: 1001; //modal이 위에 뜨게 z-index 지정
                 bottom: 10px;
                 font-weight: bold;
                 font-size: 25px;
-             border: solid yellow 1px   
+             border: solid #FFE68B 1px   
             }
             // 사용자 정보(자기소개)
                 .intro-section{
@@ -156,17 +161,17 @@ $z-index-modal: 1001; //modal이 위에 뜨게 z-index 지정
                         padding: 10px 30px;
                         border-radius: 10px;
                         font-size: 16px;
-                        color: rgb(229, 229, 27);
+                        color: #000000;
                         background-color: white;
-                        border-color: yellow;
+                        border: 3px solid #FFE68B;
                      }
                     .cancel-button{
                         padding: 10px 30px;
                         border-radius: 10px;
                         font-size: 16px;
-                        color: rgb(188, 188, 188);
+                        color: #000000;
                         background-color: white;
-                        border-color: rgb(175, 188, 175);
+                        border:3px solid #999999;
                     }
                      
                     }

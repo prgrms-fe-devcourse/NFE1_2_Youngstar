@@ -18,7 +18,8 @@ type User = {
     fullName: string,
     email: string,
     createdAt: string,
-    updatedAt: string
+    updatedAt: string,
+    username?: string,
 }
 
 export default User;

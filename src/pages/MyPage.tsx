@@ -110,10 +110,9 @@ const MyPage = () => {
       <div className="profile-section">
         <img className="profile-image" src={profileImage} alt="Profile" />
         <h2 className="user-id">{data?.fullName}</h2>
-        <div>
+        <div className="introduce-box">
           <p className="introduce-text">
-            안녕 나는 박춘봉이다 여기는 자기소개문구 입력란이다. 자기소개 문구
-            제한은 50자이고 수정 가능하다
+            {data?.username}
           </p>
         </div>
       </div>
