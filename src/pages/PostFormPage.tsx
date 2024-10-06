@@ -27,10 +27,10 @@ const PostFormPage: React.FC = () => {
 
     const handleSubmit = async () => {
         const formData = new FormData();
-        if (title) {
-            formData.append('title', title);
+        if (content) {
+            formData.append('title', content);
         } else {
-            alert('제목을 적어주세요.');
+            alert('내용을 적어주세요.');
             return;
         }
         images.forEach((image) => {
@@ -73,7 +73,6 @@ const PostFormPage: React.FC = () => {
                     <img src='src/assets/tag.svg' alt='태그 아이콘' />
                 </div>
                 <div>
-                    <input type="text" placeholder='제목을 입력해주세요' className='titleInput' onChange={handleTitleChange}/>
                     <textarea
                     name='content'
                     placeholder='내용을 입력하세요.'
