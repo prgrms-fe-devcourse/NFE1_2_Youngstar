@@ -9,7 +9,7 @@ import '../styles/css/DetailPage.css';
 import useFetchPost from '../hooks/useFetchPost';
 import Comment from '../types/Comment';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 import axios from 'axios';
 import Post from '../types/Post';
@@ -120,6 +120,27 @@ const DetailPage = () => {
         
     };
 
+    const handleDelete = async (id: string) => {
+        try {
+            const response = await axios.delete(
+                `${import.meta.env.VITE_API_URL}/posts/delete`,
+                {
+                    headers: { Authorization: `Bearer ${token}` },
+                    data: {id: id}
+                }
+            );
+            if (response.status === 200) {
+                alert('삭제되었습니다.');
+                const navigate = useNavigate();
+                navigate('/');
+            }
+
+        } catch (error) {
+            console.error('좋아요 취소 실패:', error);
+        }
+        
+    };
+
     return (
         <div className='detail-container'>
             <PageHeader> </PageHeader>
@@ -131,9 +152,9 @@ const DetailPage = () => {
                             <span className='detail_user_nickname'>{data.author.fullName}</span>
                         </p>
                         <button className='modify_btn' onClick={() => setShow(prev => !prev)}>···</button>
-                        {show && <ul className='modify_area'>
+                        { show && <ul className='modify_area'>
                             <li>수정하기</li>
-                            <li>삭제하기</li>
+                            <li onClick={() =>handleDelete(data._id)}>삭제하기</li>
                         </ul>}
                     </div>
                     <Slider {...settings}>
