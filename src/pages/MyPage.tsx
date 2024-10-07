@@ -129,6 +129,19 @@ const MyPage = () => {
           }
         );
         alert('팔로우 성공');
+        const response2 = await axios.post(
+          `${import.meta.env.VITE_API_URL}/notifications/create`,
+          { notificationType: "FOLLOW",
+            notificationTypeId: response.data._id,
+            userId: id,
+            postId: null,
+        },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        );
         setIsFollowing(true);
       } catch (error) {
         console.error("팔로우 실패", error);

@@ -20,12 +20,6 @@ const NotificationPage = () => {
 
     const { notifications } = useFetchNotification();
 
-    // const userData = localStorage.getItem('user');
-    // const userId = userData ? JSON.parse(userData)._id : null;
-    // const { data } = useFetchNotification(userId);
-    // console.log(data)
-    // console.log(data?.notifications);
-
     const elapsedTime = (date: number): string => {
         const start = new Date(date);
         const end = new Date();
