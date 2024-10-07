@@ -37,7 +37,7 @@ const PostFormPage: React.FC = () => {
             formData.append('image', image);
         });
 
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2ZmNiODU4YzczNjllMzdiZTMxNTA2NiIsImVtYWlsIjoiYXVkc2tkQGdtYWlsLmNvbSJ9LCJpYXQiOjE3Mjc4MzgyOTZ9.LOfkLAehxjd5MveY0vSEbW8qLZnCDj4axtsszkaP1is"; // 나중에 실제 JWT 토큰으로 변경해야 함
+        const token = localStorage.getItem('token');
 
         try {
             const response = await axios.post('https://kdt.frontend.5th.programmers.co.kr:5006/posts/create', formData, {
